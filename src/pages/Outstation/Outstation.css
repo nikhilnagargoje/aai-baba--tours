@@ -1,0 +1,898 @@
+.outstation-page {
+  overflow: hidden;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.outstation-hero {
+  position: relative;
+  min-height: 680px;
+  display: flex;
+  align-items: center;
+  background:
+    radial-gradient(
+      circle at 75% 35%,
+      rgba(162, 118, 61, 0.13),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #fffdf8 0%,
+      #f8f2e9 55%,
+      #f2e8da 100%
+    );
+  overflow: hidden;
+}
+
+.outstation-hero__glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(5px);
+  pointer-events: none;
+}
+
+.outstation-hero__glow--one {
+  width: 360px;
+  height: 360px;
+  right: -120px;
+  top: 80px;
+  background: rgba(162, 118, 61, 0.08);
+}
+
+.outstation-hero__glow--two {
+  width: 240px;
+  height: 240px;
+  left: -100px;
+  bottom: -100px;
+  background: rgba(76, 48, 29, 0.05);
+}
+
+.outstation-hero__route {
+  position: absolute;
+  border: 1px solid rgba(76, 48, 29, 0.08);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.outstation-hero__route--one {
+  width: 720px;
+  height: 380px;
+  right: -180px;
+  top: 80px;
+  transform: rotate(-17deg);
+}
+
+.outstation-hero__route--two {
+  width: 620px;
+  height: 300px;
+  right: -120px;
+  top: 120px;
+  transform: rotate(13deg);
+}
+
+.outstation-hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+.outstation-hero__grid {
+  min-height: 680px;
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  align-items: center;
+  gap: 70px;
+}
+
+.outstation-hero__content {
+  max-width: 650px;
+}
+
+.outstation-hero__eyebrow,
+.outstation-section-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--color-accent);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+.outstation-hero__eyebrow span,
+.outstation-section-eyebrow span {
+  width: 30px;
+  height: 1px;
+  background: var(--color-accent);
+}
+
+.outstation-hero h1 {
+  margin-top: 24px;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(4rem, 7vw, 6.5rem);
+  line-height: 0.92;
+  letter-spacing: -0.045em;
+  color: var(--color-primary);
+}
+
+.outstation-hero h1 span {
+  color: var(--color-accent);
+}
+
+.outstation-hero p {
+  max-width: 580px;
+  margin-top: 30px;
+  color: var(--color-text-light);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.outstation-hero__actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 34px;
+}
+
+.outstation-hero__primary,
+.outstation-hero__secondary {
+  min-height: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 0 20px;
+  border-radius: 9px;
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 700;
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast),
+    background var(--transition-fast);
+}
+
+.outstation-hero__primary {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+.outstation-hero__secondary {
+  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.65);
+  color: var(--color-primary);
+}
+
+.outstation-hero__primary:hover,
+.outstation-hero__secondary:hover {
+  transform: translateY(-2px);
+}
+
+.outstation-hero__primary:hover {
+  box-shadow: 0 12px 30px rgba(76, 48, 29, 0.16);
+}
+
+/* HERO VISUAL */
+
+.outstation-hero__visual {
+  position: relative;
+  min-height: 430px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.outstation-hero__visual-card {
+  position: relative;
+  width: min(100%, 450px);
+  padding: 28px;
+  border: 1px solid rgba(76, 48, 29, 0.1);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow:
+    0 30px 80px rgba(76, 48, 29, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  animation: outstationCardFloat 5s ease-in-out infinite;
+}
+
+@keyframes outstationCardFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.outstation-hero__visual-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text-light);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+}
+
+.outstation-hero__visual-top svg {
+  color: var(--color-accent);
+}
+
+.outstation-route {
+  padding: 30px 5px;
+}
+
+.outstation-route__point {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.outstation-route__dot {
+  position: relative;
+  flex: 0 0 auto;
+  width: 13px;
+  height: 13px;
+  border: 3px solid var(--color-accent);
+  border-radius: 50%;
+  background: var(--color-white);
+}
+
+.outstation-route__dot--end {
+  border-color: var(--color-primary);
+}
+
+.outstation-route__point small {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--color-text-light);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.outstation-route__point strong {
+  display: block;
+  color: var(--color-primary);
+  font-size: 0.98rem;
+}
+
+.outstation-route__line {
+  position: relative;
+  width: 1px;
+  height: 65px;
+  margin-left: 6px;
+  border-left: 1px dashed rgba(76, 48, 29, 0.35);
+}
+
+.outstation-route__line span {
+  position: absolute;
+  left: -4px;
+  top: 28px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  animation: routePointMove 2.5s ease-in-out infinite;
+}
+
+@keyframes routePointMove {
+  0%,
+  100% {
+    top: 8px;
+  }
+
+  50% {
+    top: 50px;
+  }
+}
+
+.outstation-hero__visual-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-border);
+}
+
+.outstation-hero__visual-bottom span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--color-text-light);
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.outstation-hero__visual-bottom svg {
+  color: var(--color-accent);
+}
+
+/* =========================
+   INTRO
+========================= */
+
+.outstation-intro {
+  background: var(--color-white);
+}
+
+.outstation-intro__grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 100px;
+  align-items: start;
+}
+
+.outstation-intro h2,
+.outstation-heading h2,
+.outstation-benefits h2 {
+  margin-top: 18px;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  color: var(--color-primary);
+}
+
+.outstation-intro h2 span,
+.outstation-heading h2 span,
+.outstation-benefits h2 span {
+  display: block;
+  color: var(--color-accent);
+}
+
+.outstation-intro__grid > div:last-child {
+  padding-top: 42px;
+}
+
+.outstation-intro__grid p {
+  max-width: 650px;
+  color: var(--color-text-light);
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+.outstation-intro__grid p + p {
+  margin-top: 18px;
+}
+
+/* =========================
+   OPTIONS
+========================= */
+
+.outstation-options {
+  background: var(--color-bg-soft);
+}
+
+.outstation-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+.outstation-heading > p {
+  max-width: 390px;
+  color: var(--color-text-light);
+  line-height: 1.7;
+}
+
+.outstation-options__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.outstation-option {
+  position: relative;
+  min-height: 250px;
+  padding: 30px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-white);
+  transition:
+    transform var(--transition-normal),
+    box-shadow var(--transition-normal);
+}
+
+.outstation-option:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 20px 45px rgba(76, 48, 29, 0.08);
+}
+
+.outstation-option__number {
+  color: var(--color-accent);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.outstation-option h3 {
+  margin-top: 45px;
+  color: var(--color-primary);
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
+}
+
+.outstation-option p {
+  max-width: 350px;
+  margin-top: 12px;
+  color: var(--color-text-light);
+  line-height: 1.7;
+  font-size: 0.9rem;
+}
+
+.outstation-option > svg {
+  position: absolute;
+  right: 28px;
+  bottom: 28px;
+  color: var(--color-accent);
+}
+
+/* =========================
+   BENEFITS
+========================= */
+
+.outstation-benefits {
+  background: var(--color-white);
+}
+
+.outstation-benefits__wrapper {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 90px;
+  padding: 65px;
+  border-radius: 28px;
+  background: var(--color-primary);
+  overflow: hidden;
+}
+
+.outstation-benefits__content {
+  color: var(--color-white);
+}
+
+.outstation-benefits__content .outstation-section-eyebrow {
+  color: #d5b98f;
+}
+
+.outstation-benefits__content .outstation-section-eyebrow span {
+  background: #d5b98f;
+}
+
+.outstation-benefits h2 {
+  color: var(--color-white);
+}
+
+.outstation-benefits h2 span {
+  color: #d5b98f;
+}
+
+.outstation-benefits__content > p {
+  max-width: 500px;
+  margin-top: 24px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.75;
+}
+
+.outstation-benefits__button {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 30px;
+  padding: 13px 18px;
+  border-radius: 8px;
+  background: var(--color-white);
+  color: var(--color-primary);
+  text-decoration: none;
+  font-size: 0.84rem;
+  font-weight: 700;
+  transition: transform var(--transition-fast);
+}
+
+.outstation-benefits__button:hover {
+  transform: translateY(-2px);
+}
+
+.outstation-benefits__list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.outstation-benefit {
+  min-height: 155px;
+  padding: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.outstation-benefit > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(213, 185, 143, 0.12);
+  color: #d5b98f;
+}
+
+.outstation-benefit span {
+  display: block;
+  margin-top: 22px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+/* =========================
+   DESTINATIONS
+========================= */
+
+.outstation-destinations {
+  background: var(--color-bg);
+}
+
+.outstation-heading__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-primary);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.outstation-heading__link:hover {
+  color: var(--color-accent);
+}
+
+.outstation-destinations__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.outstation-destination {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 12px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 50px;
+  background: var(--color-white);
+  color: var(--color-text);
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition:
+    transform var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.outstation-destination svg {
+  color: var(--color-accent);
+}
+
+.outstation-destination:hover {
+  transform: translateY(-2px);
+  border-color: rgba(162, 118, 61, 0.4);
+}
+
+/* =========================
+   CTA
+========================= */
+
+.outstation-cta {
+  padding: 70px 0;
+  background: var(--color-bg-soft);
+}
+
+.outstation-cta__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  padding: 55px 60px;
+  border-radius: 25px;
+  background:
+    radial-gradient(
+      circle at 85% 50%,
+      rgba(162, 118, 61, 0.14),
+      transparent 35%
+    ),
+    var(--color-primary-dark);
+}
+
+.outstation-cta__wrapper > div:first-child > span {
+  color: #d5b98f;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.17em;
+}
+
+.outstation-cta h2 {
+  margin-top: 12px;
+  color: var(--color-white);
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.3rem, 4vw, 3.7rem);
+  line-height: 1;
+}
+
+.outstation-cta h2 strong {
+  color: #d5b98f;
+}
+
+.outstation-cta p {
+  margin-top: 17px;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.6;
+}
+
+.outstation-cta__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 205px;
+}
+
+.outstation-cta__actions a {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 700;
+  transition: transform var(--transition-fast);
+}
+
+.outstation-cta__actions a:hover {
+  transform: translateY(-2px);
+}
+
+.outstation-cta__call {
+  background: var(--color-white);
+  color: var(--color-primary);
+}
+
+.outstation-cta__whatsapp {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: var(--color-white);
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1024px) {
+  .outstation-hero {
+    min-height: 620px;
+  }
+
+  .outstation-hero__grid {
+    min-height: 620px;
+    gap: 35px;
+  }
+
+  .outstation-hero h1 {
+    font-size: clamp(3.5rem, 7vw, 5rem);
+  }
+
+  .outstation-intro__grid {
+    gap: 50px;
+  }
+
+  .outstation-benefits__wrapper {
+    gap: 45px;
+    padding: 45px;
+  }
+
+  .outstation-cta__wrapper {
+    padding: 45px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+  .outstation-hero {
+    min-height: auto;
+    padding: 90px 0 65px;
+  }
+
+  .outstation-hero__grid {
+    min-height: auto;
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .outstation-hero__content {
+    text-align: center;
+    margin-inline: auto;
+  }
+
+  .outstation-hero__eyebrow {
+    justify-content: center;
+  }
+
+  .outstation-hero h1 {
+    margin-top: 20px;
+    font-size: clamp(3.1rem, 14vw, 4.7rem);
+  }
+
+  .outstation-hero p {
+    margin-inline: auto;
+    font-size: 0.92rem;
+  }
+
+  .outstation-hero__actions {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .outstation-hero__visual {
+    min-height: 350px;
+  }
+
+  .outstation-hero__visual-card {
+    padding: 22px;
+  }
+
+  .outstation-hero__visual-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .outstation-intro__grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .outstation-intro__grid > div:last-child {
+    padding-top: 0;
+  }
+
+  .outstation-intro h2,
+  .outstation-heading h2,
+  .outstation-benefits h2 {
+    font-size: 2.5rem;
+  }
+
+  .outstation-heading {
+    display: block;
+    margin-bottom: 35px;
+  }
+
+  .outstation-heading > p {
+    margin-top: 18px;
+  }
+
+  .outstation-options__grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .outstation-option {
+    min-height: 215px;
+    padding: 25px;
+  }
+
+  .outstation-option h3 {
+    margin-top: 38px;
+  }
+
+  .outstation-benefits__wrapper {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 30px 22px;
+    border-radius: 20px;
+  }
+
+  .outstation-benefits__list {
+    grid-template-columns: 1fr;
+  }
+
+  .outstation-benefit {
+    min-height: auto;
+  }
+
+  .outstation-heading__link {
+    margin-top: 22px;
+  }
+
+  .outstation-destinations__list {
+    gap: 8px;
+  }
+
+  .outstation-destination {
+    padding: 10px 13px;
+    font-size: 0.75rem;
+  }
+
+  .outstation-cta {
+    padding: 55px 0;
+  }
+
+  .outstation-cta__wrapper {
+    display: block;
+    padding: 35px 24px;
+    border-radius: 20px;
+  }
+
+  .outstation-cta__actions {
+    margin-top: 28px;
+    width: 100%;
+  }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 480px) {
+  .outstation-hero {
+    padding-top: 80px;
+  }
+
+  .outstation-hero h1 {
+    font-size: 3.25rem;
+  }
+
+  .outstation-hero p {
+    font-size: 0.88rem;
+  }
+
+  .outstation-hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .outstation-hero__primary,
+  .outstation-hero__secondary {
+    width: 100%;
+  }
+
+  .outstation-hero__visual {
+    min-height: 320px;
+  }
+
+  .outstation-hero__visual-card {
+    width: 100%;
+    padding: 20px;
+    border-radius: 18px;
+  }
+
+  .outstation-route {
+    padding: 24px 0;
+  }
+
+  .outstation-route__point strong {
+    font-size: 0.86rem;
+  }
+
+  .outstation-intro h2,
+  .outstation-heading h2,
+  .outstation-benefits h2 {
+    font-size: 2.25rem;
+  }
+
+  .outstation-option {
+    min-height: 205px;
+  }
+
+  .outstation-cta h2 {
+    font-size: 2.5rem;
+  }
+}

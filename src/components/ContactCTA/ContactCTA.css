@@ -1,0 +1,219 @@
+.contact-cta {
+  background: var(--color-bg-soft);
+  overflow: hidden;
+}
+
+.contact-cta__wrapper {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 70px;
+  align-items: center;
+  padding: 64px;
+  border-radius: 24px;
+  background: var(--color-primary);
+  overflow: hidden;
+}
+
+.contact-cta__wrapper::before {
+  content: "";
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  right: -120px;
+  top: -160px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
+}
+
+.contact-cta__wrapper::after {
+  content: "";
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  right: 40px;
+  bottom: -150px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+}
+
+.contact-cta__content,
+.contact-cta__actions {
+  position: relative;
+  z-index: 1;
+}
+
+.contact-cta__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  color: #d5b27b;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.contact-cta__eyebrow span {
+  width: 28px;
+  height: 1px;
+  background: #d5b27b;
+}
+
+.contact-cta__title {
+  max-width: 650px;
+  color: var(--color-white);
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.3rem, 4vw, 3.8rem);
+  line-height: 1.08;
+}
+
+.contact-cta__title span {
+  display: block;
+  color: #d5b27b;
+}
+
+.contact-cta__text {
+  max-width: 590px;
+  margin-top: 22px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.98rem;
+  line-height: 1.75;
+}
+
+.contact-cta__location {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 28px;
+}
+
+.contact-cta__location span {
+  color: rgba(255, 255, 255, 0.48);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.contact-cta__location strong {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.88rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.contact-cta__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+  max-width: 310px;
+  justify-self: end;
+  width: 100%;
+}
+
+.contact-cta__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 0 20px;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    transform var(--transition-fast),
+    background var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.contact-cta__button:hover {
+  transform: translateY(-2px);
+}
+
+.contact-cta__button--primary {
+  background: var(--color-white);
+  color: var(--color-primary);
+}
+
+.contact-cta__button--primary:hover {
+  background: #f5eee5;
+}
+
+.contact-cta__button--secondary {
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: var(--color-white);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.contact-cta__button--secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.contact-cta__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 8px;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    color var(--transition-fast),
+    gap var(--transition-fast);
+}
+
+.contact-cta__link:hover {
+  color: var(--color-white);
+  gap: 10px;
+}
+
+@media (max-width: 900px) {
+  .contact-cta__wrapper {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    padding: 48px;
+  }
+
+  .contact-cta__actions {
+    justify-self: start;
+    max-width: 360px;
+  }
+}
+
+@media (max-width: 600px) {
+  .contact-cta {
+    padding: 56px 0;
+  }
+
+  .contact-cta__wrapper {
+    gap: 30px;
+    padding: 34px 22px;
+    border-radius: 18px;
+  }
+
+  .contact-cta__title {
+    font-size: 2.25rem;
+  }
+
+  .contact-cta__text {
+    margin-top: 18px;
+    font-size: 0.9rem;
+  }
+
+  .contact-cta__location {
+    margin-top: 22px;
+  }
+
+  .contact-cta__actions {
+    max-width: none;
+  }
+
+  .contact-cta__button {
+    min-height: 50px;
+  }
+}
