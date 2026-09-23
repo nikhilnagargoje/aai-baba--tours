@@ -20,9 +20,9 @@ const WIKIMEDIA =
 const wiki = (fileName: string) =>
   `${WIKIMEDIA}/${encodeURIComponent(fileName)}?width=900`;
 
-/* =========================================
-   CATEGORY FALLBACK IMAGES
-========================================= */
+/* =========================================================
+   FALLBACK IMAGES
+   ========================================================= */
 
 const fallbackImages = {
   heritage: wiki("Caves Of Ellora.JPG"),
@@ -31,7 +31,9 @@ const fallbackImages = {
     "Gateway of India Mumbai 03-2016 img3.jpg",
   ),
 
-  religious: wiki("Grishneshwar Temple.jpg"),
+  religious: wiki(
+    "Grishneshwar Temple.jpg",
+  ),
 
   hills: wiki(
     "A view of western ghats.jpg",
@@ -46,14 +48,19 @@ const fallbackImages = {
   ),
 };
 
-/* =========================================
+/* =========================================================
    DESTINATION CATEGORIES
-========================================= */
+   IMPORTANT:
+   ONLY 4 IMAGE DESTINATIONS PER CATEGORY.
+   TOTAL = 24 FEATURED IMAGES.
+   ========================================================= */
 
 export const destinationCategories: DestinationCategory[] = [
-  /* =========================================
-     01 — SAMBHAJINAGAR & NEARBY
-  ========================================= */
+
+  /* =========================================================
+     01 — CHHATRAPATI SAMBHAJINAGAR & NEARBY
+     4 IMAGES
+  ========================================================= */
 
   {
     id: "sambhajinagar",
@@ -61,7 +68,7 @@ export const destinationCategories: DestinationCategory[] = [
     eyebrow: "LOCAL & NEARBY",
     title: "Chhatrapati Sambhajinagar",
     description:
-      "Explore heritage, religious and sightseeing destinations around Chhatrapati Sambhajinagar.",
+      "Explore heritage, nature and sightseeing destinations around Chhatrapati Sambhajinagar.",
     fallbackImage: fallbackImages.heritage,
 
     destinations: [
@@ -78,50 +85,23 @@ export const destinationCategories: DestinationCategory[] = [
       },
 
       {
-        name: "Bibi Ka Maqbara",
-        subtitle: "Heritage",
-        image: wiki(
-          "Bibi-Ka-Maqbara -- A masterpiece.JPG",
-        ),
-      },
-
-      {
-        name: "Daulatabad Fort",
-        subtitle: "Fort & Heritage",
-        image: wiki(
-          "Daulatabad Fort - Exterior of Inner Fort.JPG",
-        ),
-      },
-
-      {
-        name: "Grishneshwar",
-        subtitle: "Jyotirlinga",
-        image: wiki(
-          "Grishneshwar Temple.jpg",
-        ),
+        name: "Lonar",
+        subtitle: "Lake & Nature",
+        image: wiki("Lonar Lake.jpg"),
       },
 
       {
         name: "Jayakwadi",
         subtitle: "Nature & Dam",
-        image: wiki(
-          "Jayakwadi Dam.jpg",
-        ),
-      },
-
-      {
-        name: "Lonar",
-        subtitle: "Lake & Nature",
-        image: wiki(
-          "Lonar Lake.jpg",
-        ),
+        image: wiki("Jayakwadi Dam.jpg"),
       },
     ],
   },
 
-  /* =========================================
+  /* =========================================================
      02 — MAHARASHTRA CITIES
-  ========================================= */
+     4 IMAGES
+  ========================================================= */
 
   {
     id: "maharashtra-cities",
@@ -134,51 +114,21 @@ export const destinationCategories: DestinationCategory[] = [
 
     destinations: [
       {
-        name: "Pune",
-        subtitle: "City Travel",
-        image: wiki(
-          "Pune skyline.jpg",
-        ),
-      },
-
-      {
-        name: "Mumbai",
-        subtitle: "City & Business",
-        image: wiki(
-          "Gateway of India Mumbai 03-2016 img3.jpg",
-        ),
-      },
-
-      {
-        name: "Beed",
-        subtitle: "Intercity Travel",
-        image: wiki(
-          "Kankaleshwar Temple Beed.jpg",
-        ),
-      },
-
-      {
-        name: "Nanded",
-        subtitle: "Pilgrimage & City",
-        image: wiki(
-          "Gurudwara shri sachkhand hazur sahib - panoramio (2).jpg",
-        ),
+        name: "Nashik",
+        subtitle: "Religious & City",
+        image: wiki("Nashik.jpg"),
       },
 
       {
         name: "Nagpur",
         subtitle: "City Travel",
-        image: wiki(
-          "Deekshabhoomi Nagpur.jpg",
-        ),
+        image: wiki("Deekshabhoomi Nagpur.jpg"),
       },
 
       {
-        name: "Nashik",
-        subtitle: "Religious & City",
-        image: wiki(
-          "Nashik.jpg",
-        ),
+        name: "Pune",
+        subtitle: "City Travel",
+        image: wiki("Pune skyline.jpg"),
       },
 
       {
@@ -191,9 +141,10 @@ export const destinationCategories: DestinationCategory[] = [
     ],
   },
 
-  /* =========================================
-     03 — RELIGIOUS JOURNEYS
-  ========================================= */
+  /* =========================================================
+     03 — RELIGIOUS DESTINATIONS
+     4 IMAGES
+  ========================================================= */
 
   {
     id: "religious",
@@ -201,15 +152,15 @@ export const destinationCategories: DestinationCategory[] = [
     eyebrow: "PILGRIMAGE",
     title: "Religious Journeys",
     description:
-      "Plan comfortable family and pilgrimage journeys to temples, Jyotirlingas, Ashtavinayak and Shaktipeeth destinations.",
+      "Plan comfortable family and pilgrimage journeys to popular religious destinations across Maharashtra.",
     fallbackImage: fallbackImages.religious,
 
     destinations: [
       {
-        name: "Shirdi",
-        subtitle: "Sai Baba Temple",
+        name: "Nanded",
+        subtitle: "Hazur Sahib",
         image: wiki(
-          "Sai baba samadhi mandir.jpg",
+          "Gurudwara shri sachkhand hazur sahib - panoramio (2).jpg",
         ),
       },
 
@@ -222,18 +173,10 @@ export const destinationCategories: DestinationCategory[] = [
       },
 
       {
-        name: "Bhimashankar",
-        subtitle: "Jyotirlinga",
+        name: "Shirdi",
+        subtitle: "Sai Baba Temple",
         image: wiki(
-          "Bhimashankar Temple.jpg",
-        ),
-      },
-
-      {
-        name: "Aundha Nagnath",
-        subtitle: "Jyotirlinga",
-        image: wiki(
-          "Aundha Nagnath Temple.jpg",
+          "Sai baba samadhi mandir.jpg",
         ),
       },
 
@@ -244,26 +187,13 @@ export const destinationCategories: DestinationCategory[] = [
           "Tulja Bhavani Temple.jpg",
         ),
       },
-
-      {
-        name: "Ashtavinayak",
-        subtitle: "Temple Circuit",
-        image: "",
-      },
-
-      {
-        name: "Nanded",
-        subtitle: "Hazur Sahib",
-        image: wiki(
-          "Gurudwara shri sachkhand hazur sahib - panoramio (2).jpg",
-        ),
-      },
     ],
   },
 
-  /* =========================================
-     04 — HILL STATIONS & NATURE
-  ========================================= */
+  /* =========================================================
+     04 — NATURE & HILL STATIONS
+     4 IMAGES
+  ========================================================= */
 
   {
     id: "hill-stations",
@@ -276,30 +206,6 @@ export const destinationCategories: DestinationCategory[] = [
 
     destinations: [
       {
-        name: "Mahabaleshwar",
-        subtitle: "Hill Station",
-        image: wiki(
-          "Mahabaleshwar.jpg",
-        ),
-      },
-
-      {
-        name: "Lonavala",
-        subtitle: "Hill Station",
-        image: wiki(
-          "Lonavala.jpg",
-        ),
-      },
-
-      {
-        name: "Malshej Ghat",
-        subtitle: "Mountain Escape",
-        image: wiki(
-          "Malshej Ghat.jpg",
-        ),
-      },
-
-      {
         name: "Bhandardara",
         subtitle: "Nature & Lake",
         image: wiki(
@@ -308,34 +214,31 @@ export const destinationCategories: DestinationCategory[] = [
       },
 
       {
+        name: "Lonavala",
+        subtitle: "Hill Station",
+        image: wiki("Lonavala.jpg"),
+      },
+
+      {
+        name: "Mahabaleshwar",
+        subtitle: "Hill Station",
+        image: wiki(
+          "Mahabaleshwar.jpg",
+        ),
+      },
+
+      {
         name: "Igatpuri",
         subtitle: "Hill Station",
-        image: wiki(
-          "Igatpuri.jpg",
-        ),
-      },
-
-      {
-        name: "Chikhaldara",
-        subtitle: "Hill Station",
-        image: wiki(
-          "Chikhaldara.jpg",
-        ),
-      },
-
-      {
-        name: "Amboli",
-        subtitle: "Western Ghats",
-        image: wiki(
-          "Amboli Ghat.jpg",
-        ),
+        image: wiki("Igatpuri.jpg"),
       },
     ],
   },
 
-  /* =========================================
+  /* =========================================================
      05 — KONKAN & BEACHES
-  ========================================= */
+     4 IMAGES
+  ========================================================= */
 
   {
     id: "konkan",
@@ -364,14 +267,6 @@ export const destinationCategories: DestinationCategory[] = [
       },
 
       {
-        name: "Ratnagiri",
-        subtitle: "Konkan",
-        image: wiki(
-          "Ratnagiri.jpg",
-        ),
-      },
-
-      {
         name: "Malvan",
         subtitle: "Coastal Travel",
         image: wiki(
@@ -389,9 +284,10 @@ export const destinationCategories: DestinationCategory[] = [
     ],
   },
 
-  /* =========================================
-     06 — OUT OF STATE / ALL INDIA
-  ========================================= */
+  /* =========================================================
+     06 — INTERSTATE & ALL INDIA
+     4 IMAGES
+  ========================================================= */
 
   {
     id: "interstate",
@@ -406,81 +302,13 @@ export const destinationCategories: DestinationCategory[] = [
       {
         name: "Goa",
         subtitle: "Beach Destination",
-        image: wiki(
-          "Goa Beach.jpg",
-        ),
+        image: wiki("Goa Beach.jpg"),
       },
 
       {
-        name: "Ahmedabad",
-        subtitle: "Gujarat",
-        image: wiki(
-          "Ahmedabad.jpg",
-        ),
-      },
-
-      {
-        name: "Statue of Unity",
-        subtitle: "Gujarat",
-        image: wiki(
-          "Statue of Unity.jpg",
-        ),
-      },
-
-      {
-        name: "Dwarka",
-        subtitle: "Pilgrimage",
-        image: wiki(
-          "Dwarkadhish Temple.jpg",
-        ),
-      },
-
-      {
-        name: "Somnath",
-        subtitle: "Pilgrimage",
-        image: wiki(
-          "Somnath Temple.jpg",
-        ),
-      },
-
-      {
-        name: "Gir",
-        subtitle: "Wildlife",
-        image: wiki(
-          "Gir National Park.jpg",
-        ),
-      },
-
-      {
-        name: "Rann of Kutch",
-        subtitle: "Gujarat",
-        image: wiki(
-          "Rann of Kutch.jpg",
-        ),
-      },
-
-      {
-        name: "Indore",
-        subtitle: "Madhya Pradesh",
-        image: wiki(
-          "Rajwada Indore.jpg",
-        ),
-      },
-
-      {
-        name: "Ujjain",
-        subtitle: "Mahakal Temple",
-        image: wiki(
-          "Mahakaleshwar Temple.jpg",
-        ),
-      },
-
-      {
-        name: "Omkareshwar",
-        subtitle: "Jyotirlinga",
-        image: wiki(
-          "Omkareshwar Temple.jpg",
-        ),
+        name: "Hampi",
+        subtitle: "Heritage",
+        image: wiki("Hampi.jpg"),
       },
 
       {
@@ -492,66 +320,10 @@ export const destinationCategories: DestinationCategory[] = [
       },
 
       {
-        name: "Udaipur",
-        subtitle: "Rajasthan",
-        image: wiki(
-          "Udaipur City Palace.jpg",
-        ),
-      },
-
-      {
-        name: "Jaisalmer",
-        subtitle: "Rajasthan",
-        image: wiki(
-          "Jaisalmer Fort.jpg",
-        ),
-      },
-
-      {
-        name: "Hampi",
-        subtitle: "Karnataka",
-        image: wiki(
-          "Hampi.jpg",
-        ),
-      },
-
-      {
-        name: "Mysuru",
-        subtitle: "Karnataka",
-        image: wiki(
-          "Mysore Palace.jpg",
-        ),
-      },
-
-      {
         name: "Hyderabad",
         subtitle: "Telangana",
         image: wiki(
           "Charminar Hyderabad.jpg",
-        ),
-      },
-
-      {
-        name: "Agra",
-        subtitle: "Uttar Pradesh",
-        image: wiki(
-          "Taj Mahal.jpg",
-        ),
-      },
-
-      {
-        name: "Mathura & Vrindavan",
-        subtitle: "Pilgrimage",
-        image: wiki(
-          "Banke Bihari Temple.jpg",
-        ),
-      },
-
-      {
-        name: "Haridwar",
-        subtitle: "Pilgrimage",
-        image: wiki(
-          "Har Ki Pauri Haridwar.jpg",
         ),
       },
     ],

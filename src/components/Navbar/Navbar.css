@@ -1,7 +1,9 @@
 .navbar {
   position: fixed;
+
   top: 0;
   left: 0;
+
   z-index: 1000;
 
   width: 100%;
@@ -18,6 +20,11 @@
     box-shadow 0.35s ease;
 }
 
+
+/* =========================================================
+   NAVBAR VISIBILITY
+========================================================= */
+
 .navbar--visible {
   transform: translateY(0);
 
@@ -31,7 +38,10 @@
   box-shadow: none;
 }
 
-/* Container */
+
+/* =========================================================
+   CONTAINER
+========================================================= */
 
 .navbar__container {
   width: min(
@@ -44,19 +54,26 @@
   margin-inline: auto;
 
   display: flex;
+
   align-items: center;
   justify-content: space-between;
 
   gap: 30px;
 }
 
-/* Logo */
+
+/* =========================================================
+   LOGO
+========================================================= */
 
 .navbar__logo {
   display: flex;
+
   flex-direction: column;
 
   flex-shrink: 0;
+
+  color: var(--color-primary);
 
   text-decoration: none;
 
@@ -87,10 +104,14 @@
   text-transform: uppercase;
 }
 
-/* Desktop Navigation */
+
+/* =========================================================
+   DESKTOP NAVIGATION
+========================================================= */
 
 .navbar__links {
   display: flex;
+
   align-items: center;
 
   gap: 25px;
@@ -114,6 +135,16 @@
     color var(--transition-fast);
 }
 
+
+/* Hover */
+
+.navbar__links a:hover {
+  color: var(--color-accent);
+}
+
+
+/* Underline */
+
 .navbar__links a::after {
   content: "";
 
@@ -131,18 +162,31 @@
     width var(--transition-fast);
 }
 
-.navbar__links a:hover {
-  color: var(--color-accent);
-}
-
 .navbar__links a:hover::after {
   width: 100%;
 }
 
-/* Actions */
+
+/* =========================================================
+   ACTIVE PAGE
+========================================================= */
+
+.navbar__links a.active {
+  color: var(--color-accent);
+}
+
+.navbar__links a.active::after {
+  width: 100%;
+}
+
+
+/* =========================================================
+   DESKTOP ACTIONS
+========================================================= */
 
 .navbar__actions {
   display: flex;
+
   align-items: center;
 
   gap: 8px;
@@ -155,6 +199,7 @@
   padding: 0 14px;
 
   display: inline-flex;
+
   align-items: center;
   justify-content: center;
 
@@ -169,7 +214,8 @@
 
   transition:
     transform var(--transition-fast),
-    background var(--transition-fast);
+    background var(--transition-fast),
+    border-color var(--transition-fast);
 }
 
 .navbar__call {
@@ -191,7 +237,10 @@
   transform: translateY(-2px);
 }
 
-/* Mobile Menu Button */
+
+/* =========================================================
+   MOBILE MENU BUTTON
+========================================================= */
 
 .navbar__menu-btn {
   display: none;
@@ -211,15 +260,37 @@
   border-radius: var(--radius-sm);
 
   cursor: pointer;
+
+  transition:
+    background var(--transition-fast),
+    border-color var(--transition-fast),
+    transform var(--transition-fast);
 }
 
-/* Mobile Menu */
+.navbar__menu-btn:hover {
+  background: var(--color-bg-soft);
+
+  border-color:
+    rgba(76, 48, 29, 0.2);
+}
+
+.navbar__menu-btn:active {
+  transform: scale(0.96);
+}
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
 
 .mobile-menu {
   display: none;
 }
 
-/* Tablet */
+
+/* =========================================================
+   TABLET
+========================================================= */
 
 @media (max-width: 1100px) {
   .navbar__links {
@@ -236,7 +307,10 @@
   }
 }
 
-/* Mobile */
+
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media (max-width: 850px) {
 
@@ -246,14 +320,23 @@
     height: 72px;
   }
 
+
+  /* Hide desktop navigation */
+
   .navbar__links,
   .navbar__actions {
     display: none;
   }
 
+
+  /* Show menu button */
+
   .navbar__menu-btn {
     display: flex;
   }
+
+
+  /* Mobile dropdown */
 
   .mobile-menu {
     display: block;
@@ -277,21 +360,25 @@
   }
 
   .mobile-menu--open {
-    max-height: 600px;
+    max-height: 650px;
 
     border-top-color:
       var(--color-border);
   }
 
+
+  /* Mobile links */
+
   .mobile-menu__links {
     display: flex;
+
     flex-direction: column;
 
     padding: 8px 20px;
   }
 
   .mobile-menu__links a {
-    padding: 15px 4px;
+    padding: 15px 8px;
 
     color: var(--color-text);
 
@@ -302,11 +389,30 @@
 
     border-bottom:
       1px solid var(--color-border);
+
+    border-radius: 6px;
+
+    transition:
+      color var(--transition-fast),
+      background var(--transition-fast);
   }
 
   .mobile-menu__links a:last-child {
     border-bottom: 0;
   }
+
+
+  /* Active mobile page */
+
+  .mobile-menu__links a.active {
+    color: var(--color-accent);
+
+    background:
+      rgba(162, 118, 61, 0.07);
+  }
+
+
+  /* Mobile actions */
 
   .mobile-menu__actions {
     display: grid;
@@ -323,6 +429,7 @@
     min-height: 46px;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
@@ -334,14 +441,29 @@
 
     font-size: 13px;
     font-weight: 700;
+
+    transition:
+      transform var(--transition-fast);
   }
+
+  .mobile-menu__actions a:hover {
+    transform: translateY(-1px);
+  }
+
+
+  /* Call */
 
   .mobile-menu__actions a:first-child {
     color: var(--color-primary);
 
     border:
       1px solid rgba(76, 48, 29, 0.2);
+
+    background: transparent;
   }
+
+
+  /* WhatsApp */
 
   .mobile-menu__actions a:last-child {
     color: var(--color-white);
@@ -350,7 +472,10 @@
   }
 }
 
-/* Small Mobile */
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
 
 @media (max-width: 380px) {
 
@@ -364,10 +489,29 @@
 
   .navbar__logo-sub {
     font-size: 8px;
+
     letter-spacing: 1.5px;
   }
 
   .mobile-menu__actions {
     grid-template-columns: 1fr;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar,
+  .navbar__links a,
+  .navbar__call,
+  .navbar__whatsapp,
+  .navbar__menu-btn,
+  .mobile-menu,
+  .mobile-menu__links a,
+  .mobile-menu__actions a {
+    transition: none;
   }
 }

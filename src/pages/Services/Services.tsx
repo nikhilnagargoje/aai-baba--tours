@@ -3,6 +3,8 @@ import {
   BriefcaseBusiness,
   CalendarDays,
   CarFront,
+  CheckCircle2,
+  ChevronRight,
   Globe2,
   GraduationCap,
   Heart,
@@ -12,6 +14,8 @@ import {
   Plane,
   Repeat2,
   Route,
+  ShieldCheck,
+  Sparkles,
   Users,
   Phone,
 } from "lucide-react";
@@ -27,6 +31,7 @@ const services = [
     title: "Car Rental with Driver",
     description:
       "Comfortable car rental with an experienced driver for local, outstation and long-distance travel.",
+    category: "Everyday Travel",
   },
   {
     icon: MapPinned,
@@ -34,6 +39,7 @@ const services = [
     title: "Local & City Travel",
     description:
       "Convenient travel within Chhatrapati Sambhajinagar for daily travel, local visits and city requirements.",
+    category: "Everyday Travel",
   },
   {
     icon: MapPinned,
@@ -41,6 +47,7 @@ const services = [
     title: "Local Sightseeing",
     description:
       "Explore Chhatrapati Sambhajinagar and nearby attractions with comfortable point-to-point travel.",
+    category: "Sightseeing",
   },
   {
     icon: Mountain,
@@ -48,6 +55,7 @@ const services = [
     title: "Ajanta Caves Tour",
     description:
       "Comfortable travel from Chhatrapati Sambhajinagar to the historic Ajanta Caves.",
+    category: "Sightseeing",
   },
   {
     icon: Mountain,
@@ -55,6 +63,7 @@ const services = [
     title: "Ellora Caves Tour",
     description:
       "Plan a convenient journey to the famous Ellora Caves and surrounding heritage attractions.",
+    category: "Sightseeing",
   },
   {
     icon: Mountain,
@@ -62,6 +71,7 @@ const services = [
     title: "Ajanta & Ellora Combined Tour",
     description:
       "Travel comfortably to both Ajanta and Ellora with a journey planned around your schedule.",
+    category: "Sightseeing",
   },
   {
     icon: Plane,
@@ -69,6 +79,7 @@ const services = [
     title: "Airport Pickup & Drop",
     description:
       "Reliable airport transfers for individuals, families and business travellers.",
+    category: "Special Travel",
   },
   {
     icon: Route,
@@ -76,6 +87,7 @@ const services = [
     title: "Outstation Car Rental",
     description:
       "Comfortable outstation travel from Chhatrapati Sambhajinagar to destinations across Maharashtra and beyond.",
+    category: "Outstation",
   },
   {
     icon: ArrowRight,
@@ -83,6 +95,7 @@ const services = [
     title: "One Way Travel",
     description:
       "Convenient one-way travel for personal, family, business and relocation requirements.",
+    category: "Outstation",
   },
   {
     icon: Repeat2,
@@ -90,6 +103,7 @@ const services = [
     title: "Round Trip",
     description:
       "Plan return journeys with comfortable travel and flexible trip arrangements.",
+    category: "Outstation",
   },
   {
     icon: Route,
@@ -97,6 +111,7 @@ const services = [
     title: "Intercity Travel",
     description:
       "Travel between cities comfortably for personal, family and professional requirements.",
+    category: "Outstation",
   },
   {
     icon: Users,
@@ -104,6 +119,7 @@ const services = [
     title: "Family Trips",
     description:
       "Comfortable family travel for holidays, visits, functions and outstation journeys.",
+    category: "Special Travel",
   },
   {
     icon: Heart,
@@ -111,6 +127,7 @@ const services = [
     title: "Wedding & Marriage Travel",
     description:
       "Travel support for weddings, marriage functions, guest transportation and family journeys.",
+    category: "Special Travel",
   },
   {
     icon: GraduationCap,
@@ -118,6 +135,7 @@ const services = [
     title: "School & College Trips",
     description:
       "Travel arrangements for educational trips, visits and group journeys.",
+    category: "Special Travel",
   },
   {
     icon: BriefcaseBusiness,
@@ -125,6 +143,7 @@ const services = [
     title: "Office & Corporate Travel",
     description:
       "Professional travel support for meetings, office visits, business trips and corporate requirements.",
+    category: "Special Travel",
   },
   {
     icon: CalendarDays,
@@ -132,6 +151,7 @@ const services = [
     title: "Multi-Day Tours",
     description:
       "Comfortable travel for journeys lasting multiple days with planned routes and destinations.",
+    category: "Long Distance",
   },
   {
     icon: MapPinned,
@@ -139,6 +159,7 @@ const services = [
     title: "Maharashtra Travel",
     description:
       "Travel across Maharashtra for sightseeing, family trips, religious visits and personal journeys.",
+    category: "Long Distance",
   },
   {
     icon: Route,
@@ -146,6 +167,7 @@ const services = [
     title: "Interstate Travel",
     description:
       "Convenient travel between Maharashtra and destinations in other states.",
+    category: "Long Distance",
   },
   {
     icon: Globe2,
@@ -153,6 +175,7 @@ const services = [
     title: "All India Travel",
     description:
       "Long-distance car travel for journeys across India based on your travel requirements.",
+    category: "Long Distance",
   },
   {
     icon: CarFront,
@@ -160,6 +183,45 @@ const services = [
     title: "Kia Carens with Driver",
     description:
       "Comfortable 7-seater Kia Carens with an experienced driver for family and group journeys.",
+    category: "Everyday Travel",
+  },
+];
+
+const categories = [
+  {
+    number: "01",
+    title: "Everyday Travel",
+    description:
+      "Comfortable local and city travel with a dedicated car and experienced driver.",
+    items: services.filter((service) => service.category === "Everyday Travel"),
+  },
+  {
+    number: "02",
+    title: "Sightseeing",
+    description:
+      "Explore Chhatrapati Sambhajinagar, Ajanta, Ellora and nearby attractions.",
+    items: services.filter((service) => service.category === "Sightseeing"),
+  },
+  {
+    number: "03",
+    title: "Outstation",
+    description:
+      "One-way, round-trip and intercity travel from Chhatrapati Sambhajinagar.",
+    items: services.filter((service) => service.category === "Outstation"),
+  },
+  {
+    number: "04",
+    title: "Special Travel",
+    description:
+      "Travel support for families, airports, weddings, education and business.",
+    items: services.filter((service) => service.category === "Special Travel"),
+  },
+  {
+    number: "05",
+    title: "Long Distance",
+    description:
+      "Maharashtra, interstate and All India journeys for longer travel plans.",
+    items: services.filter((service) => service.category === "Long Distance"),
   },
 ];
 
@@ -183,191 +245,536 @@ const Services = () => {
       </Helmet>
 
       <main className="services-page">
-        {/* HERO */}
-        <section className="services-page__hero">
-          <div className="container">
-            <div className="services-page__hero-content">
-              <div className="services-page__eyebrow">
+
+        {/* ================= HERO ================= */}
+
+        <section className="services-hero">
+          <div className="services-hero__glow services-hero__glow--one" />
+          <div className="services-hero__glow services-hero__glow--two" />
+
+          <div className="services-hero__route services-hero__route--one" />
+          <div className="services-hero__route services-hero__route--two" />
+          <div className="services-hero__route services-hero__route--three" />
+
+          <div className="container services-hero__container">
+
+            <div className="services-hero__content">
+
+              <div className="services-hero__eyebrow">
                 <span />
-                OUR SERVICES
+                TRAVEL SERVICES
+                <span />
               </div>
 
               <h1>
-                Travel Services
-                <span> For Every Journey.</span>
+                Every Journey
+                <br />
+                <em>Starts Here.</em>
               </h1>
 
               <p>
-                From local travel and sightseeing to outstation,
-                family, wedding, corporate and long-distance
-                journeys, Aai Baba Tours & Travels provides
-                comfortable car travel from Chhatrapati
-                Sambhajinagar.
+                From everyday city travel to long-distance journeys across
+                Maharashtra and India, we make your travel simple, comfortable
+                and dependable.
               </p>
 
-              <div className="services-page__hero-actions">
+              <div className="services-hero__actions">
                 <a
                   href="tel:9272060443"
-                  className="services-page__primary-btn"
+                  className="services-btn services-btn--primary"
                 >
                   <Phone size={17} />
                   Call for Booking
+                  <ArrowRight size={16} />
                 </a>
 
                 <Link
                   to="/contact"
-                  className="services-page__secondary-btn"
+                  className="services-btn services-btn--outline"
                 >
-                  Contact Us
-                  <ArrowRight size={16} />
+                  Plan Your Journey
                 </Link>
               </div>
+
+              <div className="services-hero__trust">
+                <div>
+                  <CheckCircle2 size={16} />
+                  <span>Experienced Driver</span>
+                </div>
+
+                <div>
+                  <CheckCircle2 size={16} />
+                  <span>7-Seater Comfort</span>
+                </div>
+
+                <div>
+                  <CheckCircle2 size={16} />
+                  <span>24 Hour Booking</span>
+                </div>
+              </div>
+
+            </div>
+
+            {/* JOURNEY VISUAL */}
+
+            <div className="services-hero__visual">
+
+              <div className="services-orbit services-orbit--outer" />
+              <div className="services-orbit services-orbit--middle" />
+              <div className="services-orbit services-orbit--inner" />
+
+              <div className="services-orbit__line services-orbit__line--one" />
+              <div className="services-orbit__line services-orbit__line--two" />
+              <div className="services-orbit__line services-orbit__line--three" />
+
+              <div className="services-hero__hub">
+                <div className="services-hero__hub-icon">
+                  <CarFront size={29} strokeWidth={1.5} />
+                </div>
+
+                <strong>Aai Baba</strong>
+                <span>Travel Hub</span>
+              </div>
+
+              <div className="services-node services-node--top">
+                <MapPinned size={15} />
+                <span>Sambhajinagar</span>
+              </div>
+
+              <div className="services-node services-node--right">
+                <Mountain size={15} />
+                <span>Ajanta • Ellora</span>
+              </div>
+
+              <div className="services-node services-node--bottom">
+                <Route size={15} />
+                <span>Outstation</span>
+              </div>
+
+              <div className="services-node services-node--left">
+                <Globe2 size={15} />
+                <span>All India</span>
+              </div>
+
+              <div className="services-floating-card services-floating-card--top">
+                <Sparkles size={15} />
+                <div>
+                  <strong>20+</strong>
+                  <span>Travel Services</span>
+                </div>
+              </div>
+
+              <div className="services-floating-card services-floating-card--bottom">
+                <ShieldCheck size={16} />
+                <div>
+                  <strong>Travel With Confidence</strong>
+                  <span>Comfort • Care • Convenience</span>
+                </div>
+              </div>
+
             </div>
           </div>
         </section>
 
-        {/* SERVICES CATALOG */}
-        <section className="services-page__catalog section">
+        {/* ================= INTRO ================= */}
+
+        <section className="services-intro section">
           <div className="container">
-            <div className="services-page__heading">
+
+            <div className="services-intro__top">
+
               <div>
-                <div className="services-page__eyebrow">
+                <div className="services-label">
                   <span />
                   WHAT WE OFFER
                 </div>
 
                 <h2>
-                  Choose Your
-                  <span> Travel Service.</span>
+                  One Car.
+                  <br />
+                  <span>Many Journeys.</span>
                 </h2>
               </div>
 
               <p>
-                Select the type of journey you are planning.
-                We provide travel support for personal,
-                family, business, group and long-distance
-                requirements.
+                Whether you are travelling across the city, visiting a
+                destination with family or planning a long-distance journey,
+                our services are designed around your travel requirement.
               </p>
+
             </div>
 
-            <div className="services-page__grid">
-              {services.map((service) => {
-                const Icon = service.icon;
+            <div className="services-intro__stats">
 
-                return (
-                  <article
-                    className="service-page-card"
-                    key={service.number}
-                  >
-                    <div className="service-page-card__top">
-                      <span>{service.number}</span>
+              <div>
+                <strong>20+</strong>
+                <span>Travel Services</span>
+              </div>
 
-                      <div className="service-page-card__icon">
-                        <Icon
-                          size={21}
-                          strokeWidth={1.7}
-                        />
-                      </div>
-                    </div>
+              <div>
+                <strong>7</strong>
+                <span>Comfortable Seats</span>
+              </div>
 
-                    <h3>{service.title}</h3>
+              <div>
+                <strong>8–9</strong>
+                <span>Years Driving Experience</span>
+              </div>
 
-                    <p>{service.description}</p>
+              <div>
+                <strong>24/7</strong>
+                <span>Booking Availability</span>
+              </div>
 
-                    <Link to="/contact">
-                      Enquire Now
-                      <ArrowRight size={15} />
-                    </Link>
-                  </article>
-                );
-              })}
             </div>
+
           </div>
         </section>
 
-        {/* TRAVEL COVERAGE */}
-        <section className="services-page__areas section">
+        {/* ================= SERVICE CATEGORIES ================= */}
+
+        <section className="services-catalog section">
+
           <div className="container">
-            <div className="services-page__areas-wrapper">
+
+            <div className="services-section-heading">
               <div>
-                <div className="services-page__eyebrow">
+                <div className="services-label">
+                  <span />
+                  OUR SERVICES
+                </div>
+
+                <h2>
+                  Travel, Your
+                  <br />
+                  <span>Way.</span>
+                </h2>
+              </div>
+
+              <p>
+                Choose from our range of local, sightseeing, outstation,
+                special and long-distance travel services.
+              </p>
+            </div>
+
+            <div className="services-category-list">
+
+              {categories.map((category) => (
+                <div
+                  className="services-category"
+                  key={category.number}
+                >
+
+                  <div className="services-category__intro">
+
+                    <span className="services-category__number">
+                      {category.number}
+                    </span>
+
+                    <h3>{category.title}</h3>
+
+                    <p>{category.description}</p>
+
+                  </div>
+
+                  <div className="services-category__items">
+
+                    {category.items.map((service) => {
+                      const Icon = service.icon;
+
+                      return (
+                        <article
+                          className="service-card"
+                          key={service.number}
+                        >
+
+                          <div className="service-card__icon">
+                            <Icon size={20} strokeWidth={1.6} />
+                          </div>
+
+                          <div className="service-card__content">
+
+                            <div className="service-card__number">
+                              {service.number}
+                            </div>
+
+                            <h4>{service.title}</h4>
+
+                            <p>{service.description}</p>
+
+                            <Link to="/contact">
+                              Enquire
+                              <ChevronRight size={14} />
+                            </Link>
+
+                          </div>
+
+                        </article>
+                      );
+                    })}
+
+                  </div>
+
+                </div>
+              ))}
+
+            </div>
+
+          </div>
+        </section>
+
+        {/* ================= COVERAGE ================= */}
+
+        <section className="services-coverage section">
+
+          <div className="services-coverage__background">
+            <div className="coverage-line coverage-line--one" />
+            <div className="coverage-line coverage-line--two" />
+            <div className="coverage-line coverage-line--three" />
+          </div>
+
+          <div className="container">
+
+            <div className="services-coverage__wrapper">
+
+              <div className="services-coverage__content">
+
+                <div className="services-label services-label--light">
                   <span />
                   TRAVEL COVERAGE
                 </div>
 
                 <h2>
-                  From Chhatrapati
-                  <span> Sambhajinagar.</span>
+                  From
+                  <br />
+                  <em>Chhatrapati Sambhajinagar</em>
+                  <br />
+                  To Wherever You Go.
                 </h2>
 
                 <p>
-                  Our travel services are available for local
-                  journeys, sightseeing, Maharashtra travel,
-                  interstate journeys and long-distance travel
-                  across India.
+                  Start your journey from Chhatrapati Sambhajinagar and travel
+                  locally, across Maharashtra, between states or anywhere in
+                  India.
                 </p>
+
+                <Link
+                  to="/destinations"
+                  className="coverage-btn"
+                >
+                  Explore Destinations
+                  <ArrowRight size={16} />
+                </Link>
+
               </div>
 
-              <div className="services-page__area-tags">
-                <span>Chhatrapati Sambhajinagar</span>
-                <span>Ajanta</span>
-                <span>Ellora</span>
-                <span>Lonar</span>
-                <span>Shirdi</span>
-                <span>Nashik</span>
-                <span>Trimbakeshwar</span>
-                <span>Pune</span>
-                <span>Mumbai</span>
-                <span>Nagpur</span>
-                <span>All Maharashtra</span>
-                <span>Interstate</span>
-                <span>All India</span>
+              <div className="services-coverage__map">
+
+                <div className="coverage-map__circle coverage-map__circle--one" />
+                <div className="coverage-map__circle coverage-map__circle--two" />
+                <div className="coverage-map__circle coverage-map__circle--three" />
+
+                <div className="coverage-map__hub">
+                  <MapPinned size={19} />
+                  <span>Sambhajinagar</span>
+                </div>
+
+                <div className="coverage-destination coverage-destination--one">
+                  <span />
+                  <strong>Maharashtra</strong>
+                </div>
+
+                <div className="coverage-destination coverage-destination--two">
+                  <span />
+                  <strong>Interstate</strong>
+                </div>
+
+                <div className="coverage-destination coverage-destination--three">
+                  <span />
+                  <strong>All India</strong>
+                </div>
+
+                <div className="coverage-route coverage-route--one" />
+                <div className="coverage-route coverage-route--two" />
+                <div className="coverage-route coverage-route--three" />
+
               </div>
+
             </div>
+
+            <div className="coverage-tags">
+              <span>Chhatrapati Sambhajinagar</span>
+              <span>Ajanta</span>
+              <span>Ellora</span>
+              <span>Lonar</span>
+              <span>Shirdi</span>
+              <span>Nashik</span>
+              <span>Trimbakeshwar</span>
+              <span>Pune</span>
+              <span>Mumbai</span>
+              <span>Nagpur</span>
+              <span>All Maharashtra</span>
+              <span>Interstate</span>
+              <span>All India</span>
+            </div>
+
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="services-page__cta section">
+        {/* ================= WHY US ================= */}
+
+        <section className="services-why section">
+
           <div className="container">
-            <div className="services-page__cta-wrapper">
+
+            <div className="services-section-heading services-section-heading--center">
+
               <div>
-                <span>PLAN YOUR JOURNEY</span>
+                <div className="services-label">
+                  <span />
+                  WHY TRAVEL WITH US
+                </div>
 
                 <h2>
-                  Tell us where
+                  More Than
                   <br />
-                  you want to go.
+                  <span>A Ride.</span>
                 </h2>
+              </div>
+
+              <p>
+                Every journey is handled with comfort, experience and
+                attention to your travel requirements.
+              </p>
+
+            </div>
+
+            <div className="services-why__grid">
+
+              <div className="why-card">
+                <div className="why-card__icon">
+                  <ShieldCheck size={22} />
+                </div>
+
+                <span>01</span>
+
+                <h3>Experienced Driver</h3>
 
                 <p>
-                  Share your destination and travel
-                  requirements with us.
+                  Experienced driving for local, outstation and long-distance
+                  journeys.
                 </p>
               </div>
 
-              <div className="services-page__cta-actions">
+              <div className="why-card">
+                <div className="why-card__icon">
+                  <CarFront size={22} />
+                </div>
+
+                <span>02</span>
+
+                <h3>7-Seater Comfort</h3>
+
+                <p>
+                  Comfortable Kia Carens for family and group travel with
+                  practical space.
+                </p>
+              </div>
+
+              <div className="why-card">
+                <div className="why-card__icon">
+                  <CalendarDays size={22} />
+                </div>
+
+                <span>03</span>
+
+                <h3>Flexible Travel</h3>
+
+                <p>
+                  One-way, round-trip, sightseeing, multi-day and long-distance
+                  travel options.
+                </p>
+              </div>
+
+              <div className="why-card">
+                <div className="why-card__icon">
+                  <MessageCircle size={22} />
+                </div>
+
+                <span>04</span>
+
+                <h3>Easy Booking</h3>
+
+                <p>
+                  Share your destination and travel requirements through call
+                  or WhatsApp.
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+
+        {/* ================= CTA ================= */}
+
+        <section className="services-final section">
+
+          <div className="container">
+
+            <div className="services-final__box">
+
+              <div className="services-final__glow" />
+
+              <div className="services-final__content">
+
+                <div className="services-label services-label--light">
+                  <span />
+                  PLAN YOUR NEXT JOURNEY
+                </div>
+
+                <h2>
+                  Where Will
+                  <br />
+                  <em>You Go Next?</em>
+                </h2>
+
+                <p>
+                  Tell us your destination, date and travel requirements.
+                  We will help you plan the journey.
+                </p>
+
+              </div>
+
+              <div className="services-final__actions">
+
                 <a
                   href="https://wa.me/918208661292"
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="final-btn final-btn--whatsapp"
                 >
-                  <MessageCircle size={17} />
+                  <MessageCircle size={18} />
                   WhatsApp Us
                   <ArrowRight size={16} />
                 </a>
 
                 <a
                   href="tel:9272060443"
-                  className="services-page__cta-call"
+                  className="final-btn final-btn--call"
                 >
                   <Phone size={17} />
                   Call Now
                 </a>
+
               </div>
+
             </div>
+
           </div>
+
         </section>
+
       </main>
     </>
   );

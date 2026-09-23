@@ -22,6 +22,11 @@ type DestinationImageProps = {
   name: string;
 };
 
+/* =========================================================
+   DESTINATION IMAGE
+   Only the 4 featured destinations per category use images.
+========================================================= */
+
 const DestinationImage = ({
   category,
   image,
@@ -54,9 +59,7 @@ const DestinationImage = ({
           strokeWidth={1.3}
         />
 
-        <span>
-          {name}
-        </span>
+        <span>{name}</span>
       </div>
     );
   }
@@ -75,6 +78,195 @@ const DestinationImage = ({
     />
   );
 };
+
+/* =========================================================
+   ADDITIONAL TEXT-ONLY DESTINATIONS
+
+   IMPORTANT:
+   No images are used here.
+========================================================= */
+
+const additionalDestinations: Record<
+  string,
+  string[]
+> = {
+  sambhajinagar: [
+    "Bibi Ka Maqbara",
+    "Daulatabad Fort",
+    "Grishneshwar",
+    "Paithan",
+    "Panchakki",
+    "Aurangabad Caves",
+    "Goga Baba Hill",
+    "Himayat Bagh",
+    "Salim Ali Lake",
+    "Soneri Mahal",
+    "Siddharth Garden",
+    "Khuldabad",
+    "Fardapur",
+    "Kachner",
+    "Shani Shingnapur",
+    "Ellora",
+    "Ajanta",
+  ],
+
+  "maharashtra-cities": [
+    "Mumbai",
+    "Beed",
+    "Nanded",
+    "Solapur",
+    "Latur",
+    "Jalna",
+    "Parbhani",
+    "Dharashiv",
+    "Ahilyanagar",
+    "Amravati",
+    "Akola",
+    "Sangli",
+    "Satara",
+    "Karad",
+    "Ratnagiri",
+    "Thane",
+    "Navi Mumbai",
+    "Shirdi",
+    "Malegaon",
+    "Dhule",
+    "Jalgaon",
+    "Buldhana",
+    "Wardha",
+    "Chandrapur",
+    "Yavatmal",
+    "Gondia",
+    "Washim",
+    "Hingoli",
+    "Pimpri-Chinchwad",
+  ],
+
+  religious: [
+    "Bhimashankar",
+    "Aundha Nagnath",
+    "Parli Vaijnath",
+    "Akkalkot",
+    "Pandharpur",
+    "Dehu",
+    "Alandi",
+    "Jejuri",
+    "Ganpatipule",
+    "Kolhapur Mahalakshmi",
+    "Shegaon",
+    "Shani Shingnapur",
+    "Morgaon",
+    "Siddhatek",
+    "Ranjangaon",
+    "Theur",
+    "Pali",
+    "Mahad",
+    "Ashtavinayak",
+    "Narsobawadi",
+    "Karanja Lad",
+  ],
+
+  "hill-stations": [
+    "Malshej Ghat",
+    "Chikhaldara",
+    "Amboli",
+    "Panchgani",
+    "Khandala",
+    "Toranmal",
+    "Kaas Plateau",
+    "Thoseghar",
+    "Matheran",
+    "Lavasa",
+    "Mulshi",
+    "Tamhini Ghat",
+    "Alibaug",
+    "Karnala",
+    "Jawhar",
+    "Saputara",
+    "Kalsubai",
+    "Rajmachi",
+    "Panhala",
+  ],
+
+  konkan: [
+    "Alibaug",
+    "Kashid",
+    "Ganpatipule",
+    "Ratnagiri",
+    "Tarkarli",
+    "Devgad",
+    "Dapoli",
+    "Shrivardhan",
+    "Diveagar",
+    "Guhagar",
+    "Velas",
+    "Karde",
+    "Mandwa",
+    "Revdanda",
+    "Murud-Janjira",
+    "Vengurla",
+    "Vijaydurg",
+    "Ganeshgule",
+    "Bhatye Beach",
+  ],
+
+  interstate: [
+    "Ahmedabad",
+    "Statue of Unity",
+    "Udaipur",
+    "Jaisalmer",
+    "Jodhpur",
+    "Indore",
+    "Ujjain",
+    "Omkareshwar",
+    "Dwarka",
+    "Somnath",
+    "Gir",
+    "Rann of Kutch",
+    "Bengaluru",
+    "Mysuru",
+    "Chennai",
+    "Vijayawada",
+    "Tirupati",
+    "Delhi",
+    "Agra",
+    "Mathura",
+    "Vrindavan",
+    "Haridwar",
+    "Rishikesh",
+    "Varanasi",
+    "Ayodhya",
+    "Amritsar",
+    "Chandigarh",
+    "Manali",
+    "Shimla",
+    "Jammu",
+    "Srinagar",
+    "Puri",
+    "Kolkata",
+    "Surat",
+    "Vadodara",
+    "Rajkot",
+    "Bhopal",
+    "Raipur",
+    "Visakhapatnam",
+    "Pondicherry",
+  ],
+};
+
+/* =========================================================
+   GET TEXT-ONLY DESTINATIONS FOR CATEGORY
+========================================================= */
+
+const getAdditionalDestinations = (
+  category: DestinationCategory,
+) => {
+  return additionalDestinations[category.id] ?? [];
+};
+
+/* =========================================================
+   PAGE
+========================================================= */
 
 const Destinations = () => {
   return (
@@ -98,7 +290,9 @@ const Destinations = () => {
 
       <main className="destinations-page">
 
-        {/* HERO */}
+        {/* =====================================================
+            HERO
+        ===================================================== */}
 
         <section className="destinations-hero">
 
@@ -173,6 +367,8 @@ const Destinations = () => {
 
             </div>
 
+            {/* HERO VISUAL */}
+
             <div className="destinations-hero__visual">
 
               <div className="destinations-orbit destinations-orbit--outer">
@@ -226,9 +422,12 @@ const Destinations = () => {
             </div>
 
           </div>
+
         </section>
 
-        {/* INTRO */}
+        {/* =====================================================
+            INTRO
+        ===================================================== */}
 
         <section className="destinations-intro section">
 
@@ -282,7 +481,9 @@ const Destinations = () => {
 
         </section>
 
-        {/* DESTINATION CATEGORIES */}
+        {/* =====================================================
+            DESTINATION CATEGORIES
+        ===================================================== */}
 
         <section
           className="destination-categories section"
@@ -292,124 +493,222 @@ const Destinations = () => {
           <div className="container">
 
             {destinationCategories.map(
-              (category) => (
+              (category) => {
 
-                <section
-                  className="destination-category"
-                  key={category.id}
-                >
+                /*
+                 * IMPORTANT:
+                 * Data file itself contains ONLY 4 destinations.
+                 * So exactly 4 image cards are rendered.
+                 */
 
-                  <div className="destination-category__heading">
+                const featuredDestinations =
+                  category.destinations.slice(0, 4);
 
-                    <div className="destination-category__number">
-                      {category.number}
-                    </div>
+                const additionalNames =
+                  getAdditionalDestinations(category).filter(
+                    (name) =>
+                      !featuredDestinations.some(
+                        (destination) =>
+                          destination.name === name,
+                      ),
+                  );
 
-                    <div className="destination-category__title-wrap">
+                return (
+                  <section
+                    className="destination-category"
+                    key={category.id}
+                  >
 
-                      <div className="destinations-section-eyebrow">
-                        <span />
-                        {category.eyebrow}
+                    {/* CATEGORY HEADING */}
+
+                    <div className="destination-category__heading">
+
+                      <div className="destination-category__number">
+                        {category.number}
                       </div>
 
-                      <h2>
-                        {category.title}
-                      </h2>
+                      <div className="destination-category__title-wrap">
 
-                      <p>
-                        {category.description}
-                      </p>
+                        <div className="destinations-section-eyebrow">
+                          <span />
+                          {category.eyebrow}
+                        </div>
+
+                        <h2>
+                          {category.title}
+                        </h2>
+
+                        <p>
+                          {category.description}
+                        </p>
+
+                      </div>
 
                     </div>
 
-                  </div>
+                    {/* =================================================
+                        EXACTLY 4 IMAGE CARDS
+                    ================================================= */}
 
-                  <div className="destination-scroll">
+                    <div className="destination-scroll">
 
-                    {category.destinations.map(
-                      (destination) => (
+                      {featuredDestinations.map(
+                        (destination, index) => (
 
-                        <article
-                          className="destination-card"
-                          key={destination.name}
-                        >
+                          <article
+                            className="destination-card"
+                            key={destination.name}
+                          >
 
-                          <div className="destination-card__image">
+                            <div className="destination-card__image">
 
-                            <DestinationImage
-                              category={category}
-                              image={destination.image}
-                              name={destination.name}
-                            />
-
-                            <div className="destination-card__shade" />
-
-                            <div className="destination-card__top">
-
-                              <span>
-                                {category.number}
-                              </span>
-
-                              <MapPin
-                                size={15}
-                                strokeWidth={1.5}
+                              <DestinationImage
+                                category={category}
+                                image={destination.image}
+                                name={destination.name}
                               />
 
-                            </div>
+                              <div className="destination-card__shade" />
 
-                            <div className="destination-card__bottom">
-
-                              <div className="destination-card__type">
-                                {destination.subtitle}
-                              </div>
-
-                              <h3>
-                                {destination.name}
-                              </h3>
-
-                              <div className="destination-card__explore">
+                              <div className="destination-card__top">
 
                                 <span>
-                                  Explore Journey
+                                  0{index + 1}
                                 </span>
 
-                                <ArrowRight
+                                <MapPin
                                   size={15}
+                                  strokeWidth={1.5}
                                 />
 
                               </div>
 
+                              <div className="destination-card__bottom">
+
+                                <div className="destination-card__type">
+                                  {destination.subtitle}
+                                </div>
+
+                                <h3>
+                                  {destination.name}
+                                </h3>
+
+                                <div className="destination-card__explore">
+
+                                  <span>
+                                    Explore Journey
+                                  </span>
+
+                                  <ArrowRight
+                                    size={15}
+                                  />
+
+                                </div>
+
+                              </div>
+
                             </div>
+
+                          </article>
+
+                        ),
+                      )}
+
+                    </div>
+
+                    {/* SWIPE HINT */}
+
+                    <div className="destination-category__scroll-hint">
+
+                      <span>
+                        Swipe to explore
+                      </span>
+
+                      <ArrowRight size={13} />
+
+                    </div>
+
+                    {/* =================================================
+                        VIEW ALL
+                        TEXT ONLY — NO IMAGES
+                    ================================================= */}
+
+                    {additionalNames.length > 0 && (
+                      <details className="destination-view-all">
+
+                        <summary className="destination-view-all__trigger">
+
+                          <span>
+                            View All Destinations
+                          </span>
+
+                          <span className="destination-view-all__count">
+                            {additionalNames.length}+
+                          </span>
+
+                          <ArrowRight
+                            size={16}
+                          />
+
+                        </summary>
+
+                        <div className="destination-view-all__content">
+
+                          <div className="destination-view-all__header">
+
+                            <div>
+
+                              <span className="destination-view-all__eyebrow">
+                                MORE PLACES TO EXPLORE
+                              </span>
+
+                              <h3>
+                                More destinations for your journey
+                              </h3>
+
+                            </div>
+
+                            <span className="destination-view-all__total">
+                              {additionalNames.length} places
+                            </span>
 
                           </div>
 
-                        </article>
+                          <div className="destination-name-grid">
 
-                      ),
+                            {additionalNames.map(
+                              (name) => (
+
+                                <span
+                                  className="destination-name"
+                                  key={name}
+                                >
+                                  <MapPin size={13} />
+                                  {name}
+                                </span>
+
+                              ),
+                            )}
+
+                          </div>
+
+                        </div>
+
+                      </details>
                     )}
 
-                  </div>
-
-                  <div className="destination-category__scroll-hint">
-
-                    <span>
-                      Swipe to explore
-                    </span>
-
-                    <ArrowRight size={13} />
-
-                  </div>
-
-                </section>
-
-              ),
+                  </section>
+                );
+              },
             )}
 
           </div>
 
         </section>
 
-        {/* COVERAGE */}
+        {/* =====================================================
+            COVERAGE CTA
+        ===================================================== */}
 
         <section className="destinations-coverage">
 
@@ -468,7 +767,9 @@ const Destinations = () => {
 
         </section>
 
-        {/* FINAL CTA */}
+        {/* =====================================================
+            FINAL CTA
+        ===================================================== */}
 
         <section className="destinations-final section">
 

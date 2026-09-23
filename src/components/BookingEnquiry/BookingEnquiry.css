@@ -1,32 +1,98 @@
 .booking-enquiry {
-  background: var(--color-bg-soft);
+  position: relative;
+
+  background:
+    radial-gradient(
+      circle at 10% 15%,
+      rgba(162, 118, 61, 0.07),
+      transparent 28%
+    ),
+    var(--color-bg-soft);
+
   overflow: hidden;
 }
+
+/* =========================
+   MAIN WRAPPER
+========================= */
 
 .booking-enquiry__wrapper {
   display: grid;
 
   grid-template-columns:
-    minmax(0, 0.8fr)
-    minmax(0, 1.2fr);
+    minmax(0, 0.82fr)
+    minmax(0, 1.18fr);
 
-  gap: 60px;
+  gap: 55px;
 
   align-items: center;
 
-  padding: 55px;
+  padding: 48px;
 
-  background: var(--color-primary);
+  background:
+    linear-gradient(
+      135deg,
+      #352116 0%,
+      #4c301d 48%,
+      #3b2518 100%
+    );
 
-  border-radius: 20px;
+  border-radius: 22px;
+
+  box-shadow:
+    0 25px 70px
+      rgba(52, 32, 20, 0.16);
+
+  overflow: hidden;
+
+  position: relative;
+}
+
+.booking-enquiry__wrapper::before {
+  content: "";
+
+  position: absolute;
+
+  width: 420px;
+  height: 420px;
+
+  left: -220px;
+  top: -190px;
+
+  border:
+    1px solid
+      rgba(255, 255, 255, 0.05);
+
+  border-radius: 50%;
+}
+
+.booking-enquiry__wrapper::after {
+  content: "";
+
+  position: absolute;
+
+  width: 300px;
+  height: 300px;
+
+  right: -170px;
+  bottom: -180px;
+
+  border:
+    1px solid
+      rgba(199, 155, 96, 0.10);
+
+  border-radius: 50%;
 }
 
 /* =========================
-   CONTENT
+   LEFT CONTENT
 ========================= */
 
 .booking-enquiry__content {
-  max-width: 430px;
+  position: relative;
+  z-index: 2;
+
+  max-width: 460px;
 }
 
 .booking-enquiry__eyebrow {
@@ -35,18 +101,19 @@
 
   gap: 9px;
 
-  margin-bottom: 18px;
+  margin-bottom: 17px;
 
   color: #c79b60;
 
-  font-size: 10px;
+  font-size: 9px;
+
   font-weight: 800;
 
   letter-spacing: 2px;
 }
 
 .booking-enquiry__eyebrow span {
-  width: 25px;
+  width: 28px;
   height: 1px;
 
   background: #c79b60;
@@ -58,14 +125,14 @@
   font-family: "Playfair Display", serif;
 
   font-size: clamp(
-    2.2rem,
-    4vw,
-    3.5rem
+    2.4rem,
+    4.2vw,
+    3.7rem
   );
 
-  line-height: 1.08;
+  line-height: 1.03;
 
-  letter-spacing: -1px;
+  letter-spacing: -1.2px;
 }
 
 .booking-enquiry__title span {
@@ -75,10 +142,12 @@
 }
 
 .booking-enquiry__text {
+  max-width: 420px;
+
   margin-top: 19px;
 
   color:
-    rgba(255, 255, 255, 0.65);
+    rgba(255, 255, 255, 0.62);
 
   font-size: 13px;
 
@@ -86,52 +155,410 @@
 }
 
 /* =========================
+   ROUTE VISUAL
+========================= */
+
+.booking-enquiry__route {
+  margin-top: 32px;
+
+  padding: 18px 17px;
+
+  background:
+    rgba(255, 255, 255, 0.055);
+
+  border:
+    1px solid
+      rgba(255, 255, 255, 0.08);
+
+  border-radius: 13px;
+}
+
+.booking-enquiry__route-line {
+  display: flex;
+
+  align-items: center;
+
+  width: 100%;
+
+  margin-bottom: 10px;
+}
+
+.booking-enquiry__route-dot {
+  width: 8px;
+  height: 8px;
+
+  flex: 0 0 8px;
+
+  background: #c79b60;
+
+  border: 2px solid #5d4029;
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 0 3px
+      rgba(199, 155, 96, 0.08);
+}
+
+.booking-enquiry__route-dot--end {
+  background: var(--color-white);
+
+  border-color: #a2763d;
+}
+
+.booking-enquiry__route-track {
+  height: 1px;
+
+  flex: 1;
+
+  margin: 0 8px;
+
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(199, 155, 96, 0.65) 0 5px,
+      transparent 5px 10px
+    );
+}
+
+.booking-enquiry__route-info {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 12px;
+}
+
+.booking-enquiry__route-info div {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.booking-enquiry__route-info span {
+  color:
+    rgba(255, 255, 255, 0.38);
+
+  font-size: 7px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.2px;
+}
+
+.booking-enquiry__route-info strong {
+  color:
+    rgba(255, 255, 255, 0.82);
+
+  font-size: 11px;
+
+  font-weight: 600;
+}
+
+.booking-enquiry__route-info > svg {
+  color: #c79b60;
+}
+
+.booking-enquiry__route-info--right {
+  text-align: right;
+}
+
+/* =========================
    CONTACT
 ========================= */
 
 .booking-enquiry__contact {
-  margin-top: 28px;
-
   display: flex;
   align-items: center;
 
   gap: 11px;
+
+  margin-top: 20px;
+
+  padding: 10px;
+
+  color: inherit;
+
+  text-decoration: none;
+
+  border-radius: 10px;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.booking-enquiry__contact:hover {
+  background:
+    rgba(255, 255, 255, 0.055);
+
+  transform: translateX(3px);
 }
 
 .booking-enquiry__contact-icon {
-  width: 38px;
-  height: 38px;
+  width: 39px;
+  height: 39px;
+
+  flex: 0 0 39px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  color: #c79b60;
+  color: #bfe5c5;
 
   background:
-    rgba(255, 255, 255, 0.08);
+    rgba(191, 229, 197, 0.08);
 
-  border-radius: 9px;
+  border:
+    1px solid
+      rgba(191, 229, 197, 0.1);
+
+  border-radius: 10px;
 }
 
-.booking-enquiry__contact div:last-child {
+.booking-enquiry__contact-text {
   display: flex;
+
   flex-direction: column;
 
-  gap: 2px;
+  gap: 3px;
 }
 
-.booking-enquiry__contact span {
+.booking-enquiry__contact-text span {
   color:
-    rgba(255, 255, 255, 0.45);
+    rgba(255, 255, 255, 0.38);
 
-  font-size: 9px;
+  font-size: 7px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.3px;
 }
 
-.booking-enquiry__contact strong {
+.booking-enquiry__contact-text strong {
   color: var(--color-white);
 
   font-size: 13px;
+}
+
+.booking-enquiry__contact-arrow {
+  margin-left: auto;
+
+  color:
+    rgba(255, 255, 255, 0.35);
+}
+
+/* =========================
+   TRUST
+========================= */
+
+.booking-enquiry__trust {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 13px;
+
+  margin-top: 19px;
+
+  padding-top: 17px;
+
+  border-top:
+    1px solid
+      rgba(255, 255, 255, 0.08);
+}
+
+.booking-enquiry__trust div {
+  display: flex;
+  align-items: center;
+
+  gap: 5px;
+
+  color:
+    rgba(255, 255, 255, 0.48);
+
+  font-size: 8px;
+}
+
+.booking-enquiry__trust svg {
+  color: #c79b60;
+}
+
+/* =========================
+   FORM WRAPPER
+========================= */
+
+.booking-enquiry__form-wrap {
+  position: relative;
+  z-index: 2;
+
+  padding: 25px;
+
+  background:
+    rgba(255, 255, 255, 0.98);
+
+  border-radius: 17px;
+
+  box-shadow:
+    0 18px 55px
+      rgba(0, 0, 0, 0.12);
+}
+
+/* =========================
+   FORM HEAD
+========================= */
+
+.booking-enquiry__form-head {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  margin-bottom: 19px;
+}
+
+.booking-enquiry__form-head > div:first-child {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.booking-enquiry__form-head span {
+  color: var(--color-accent);
+
+  font-size: 8px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.6px;
+}
+
+.booking-enquiry__form-head h3 {
+  color: var(--color-primary);
+
+  font-family: "Playfair Display", serif;
+
+  font-size: 25px;
+
+  line-height: 1.1;
+}
+
+.booking-enquiry__form-badge {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 5px;
+
+  padding: 7px 9px;
+
+  color: #46734e;
+
+  background: #eef8f0;
+
+  border: 1px solid #d9eedc;
+
+  border-radius: 7px;
+
+  font-size: 8px;
+
+  font-weight: 800;
+}
+
+/* =========================
+   PROGRESS
+========================= */
+
+.booking-enquiry__progress {
+  position: relative;
+
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 24px;
+
+  padding: 0 5px;
+}
+
+.booking-enquiry__progress-line {
+  position: absolute;
+
+  left: 21px;
+  right: 21px;
+
+  top: 12px;
+
+  height: 1px;
+
+  background:
+    rgba(76, 48, 29, 0.12);
+}
+
+.booking-enquiry__progress-step {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+
+  flex-direction: column;
+  align-items: center;
+
+  gap: 5px;
+
+  color:
+    rgba(76, 48, 29, 0.35);
+
+  font-size: 8px;
+}
+
+.booking-enquiry__progress-step span {
+  width: 25px;
+  height: 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #f5f1eb;
+
+  border:
+    1px solid
+      rgba(76, 48, 29, 0.1);
+
+  border-radius: 50%;
+
+  font-size: 8px;
+
+  font-weight: 800;
+}
+
+.booking-enquiry__progress-step small {
+  font-size: 8px;
+
+  font-weight: 600;
+}
+
+.booking-enquiry__progress-step--active {
+  color: var(--color-accent);
+}
+
+.booking-enquiry__progress-step--active span {
+  color: var(--color-white);
+
+  background: var(--color-primary);
+
+  border-color: var(--color-primary);
+
+  box-shadow:
+    0 0 0 4px
+      rgba(162, 118, 61, 0.09);
 }
 
 /* =========================
@@ -139,12 +566,49 @@
 ========================= */
 
 .booking-enquiry__form {
-  padding: 25px;
+  display: flex;
 
-  background: var(--color-white);
-
-  border-radius: 15px;
+  flex-direction: column;
 }
+
+/* =========================
+   SECTION TITLE
+========================= */
+
+.booking-enquiry__section-title {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  margin-bottom: 11px;
+}
+
+.booking-enquiry__section-title--space {
+  margin-top: 18px;
+}
+
+.booking-enquiry__section-title span {
+  color: var(--color-accent);
+
+  font-size: 8px;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
+}
+
+.booking-enquiry__section-title strong {
+  color: var(--color-primary);
+
+  font-size: 10px;
+
+  font-weight: 800;
+}
+
+/* =========================
+   ROW
+========================= */
 
 .booking-enquiry__row {
   display: grid;
@@ -152,16 +616,23 @@
   grid-template-columns:
     repeat(2, minmax(0, 1fr));
 
-  gap: 13px;
-
-  margin-bottom: 13px;
+  gap: 11px;
 }
+
+/* =========================
+   FIELD
+========================= */
 
 .booking-field {
   display: flex;
+
   flex-direction: column;
 
-  gap: 7px;
+  gap: 6px;
+}
+
+.booking-field--full {
+  width: 100%;
 }
 
 .booking-field label {
@@ -172,7 +643,8 @@
 
   color: var(--color-primary);
 
-  font-size: 10px;
+  font-size: 9px;
+
   font-weight: 700;
 }
 
@@ -180,12 +652,35 @@
   color: var(--color-accent);
 }
 
+.booking-field__optional {
+  margin-left: auto;
+
+  color:
+    rgba(109, 98, 89, 0.5) !important;
+
+  font-size: 7px !important;
+
+  font-weight: 600 !important;
+
+  letter-spacing: 0 !important;
+}
+
+/* =========================
+   INPUT
+========================= */
+
+.booking-field__input {
+  position: relative;
+}
+
 .booking-field input,
 .booking-field select {
   width: 100%;
-  height: 43px;
 
-  padding: 0 12px;
+  height: 42px;
+
+  padding:
+    0 11px;
 
   color: var(--color-text);
 
@@ -193,23 +688,34 @@
 
   border:
     1px solid
-      rgba(76, 48, 29, 0.12);
+      rgba(76, 48, 29, 0.11);
 
   border-radius: 8px;
 
   outline: none;
 
-  font-size: 11px;
+  font-size: 10px;
 
   transition:
     border-color 0.2s ease,
-    box-shadow 0.2s ease;
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.booking-field input:hover,
+.booking-field select:hover {
+  background: #fffdfa;
+
+  border-color:
+    rgba(162, 118, 61, 0.28);
 }
 
 .booking-field input:focus,
 .booking-field select:focus {
+  background: var(--color-white);
+
   border-color:
-    rgba(162, 118, 61, 0.6);
+    rgba(162, 118, 61, 0.65);
 
   box-shadow:
     0 0 0 3px
@@ -218,7 +724,13 @@
 
 .booking-field input::placeholder {
   color:
-    rgba(109, 98, 89, 0.6);
+    rgba(109, 98, 89, 0.55);
+}
+
+.booking-field select {
+  cursor: pointer;
+
+  appearance: auto;
 }
 
 /* =========================
@@ -228,60 +740,125 @@
 .booking-enquiry__submit {
   width: 100%;
 
-  min-height: 46px;
+  min-height: 52px;
 
-  margin-top: 16px;
+  margin-top: 20px;
 
-  padding: 0 16px;
+  padding: 5px 8px 5px 7px;
 
   display: flex;
   align-items: center;
-  justify-content: center;
 
-  gap: 8px;
+  gap: 10px;
 
   color: var(--color-white);
 
-  background: var(--color-primary);
+  background:
+    linear-gradient(
+      100deg,
+      var(--color-primary-dark),
+      var(--color-primary)
+    );
 
-  border-radius: 8px;
+  border:
+    1px solid
+      rgba(162, 118, 61, 0.25);
+
+  border-radius: 10px;
 
   cursor: pointer;
 
-  font-size: 11px;
-  font-weight: 700;
+  font-size: 10px;
+
+  font-weight: 800;
 
   transition:
     transform 0.25s ease,
+    box-shadow 0.25s ease,
     background 0.25s ease;
 }
 
 .booking-enquiry__submit:hover {
   transform: translateY(-2px);
 
-  background: var(--color-primary-dark);
+  box-shadow:
+    0 12px 28px
+      rgba(76, 48, 29, 0.18);
+
+  background:
+    linear-gradient(
+      100deg,
+      #2f1c11,
+      #573721
+    );
 }
 
-.booking-enquiry__submit svg:first-child {
+.booking-enquiry__submit-icon {
+  width: 38px;
+  height: 38px;
+
+  flex: 0 0 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   color: #bfe5c5;
+
+  background:
+    rgba(191, 229, 197, 0.10);
+
+  border-radius: 8px;
+}
+
+.booking-enquiry__submit-text {
+  display: flex;
+
+  flex: 1;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  gap: 2px;
+
+  text-align: left;
+}
+
+.booking-enquiry__submit-text small {
+  color:
+    rgba(255, 255, 255, 0.45);
+
+  font-size: 7px;
+
+  font-weight: 500;
+}
+
+.booking-enquiry__submit > svg {
+  margin-right: 8px;
+
+  color:
+    rgba(255, 255, 255, 0.55);
 }
 
 .booking-enquiry__note {
-  margin-top: 9px;
+  margin-top: 8px;
 
   text-align: center;
 
   color:
-    rgba(109, 98, 89, 0.7);
+    rgba(109, 98, 89, 0.58);
 
-  font-size: 8px;
+  font-size: 7px;
+
+  line-height: 1.5;
 }
 
 /* =========================
    TABLET
 ========================= */
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
   .booking-enquiry__wrapper {
     grid-template-columns: 1fr;
 
@@ -291,7 +868,11 @@
   }
 
   .booking-enquiry__content {
-    max-width: 600px;
+    max-width: 650px;
+  }
+
+  .booking-enquiry__form-wrap {
+    max-width: 720px;
   }
 }
 
@@ -305,15 +886,15 @@
   }
 
   .booking-enquiry__wrapper {
-    gap: 27px;
+    gap: 25px;
 
-    padding: 25px 17px;
+    padding: 25px 15px;
 
-    border-radius: 15px;
+    border-radius: 16px;
   }
 
   .booking-enquiry__title {
-    font-size: 2.4rem;
+    font-size: 2.35rem;
   }
 
   .booking-enquiry__text {
@@ -324,55 +905,122 @@
     line-height: 1.7;
   }
 
-  .booking-enquiry__contact {
-    margin-top: 20px;
+  .booking-enquiry__route {
+    margin-top: 23px;
+
+    padding: 15px;
   }
 
-  .booking-enquiry__form {
-    padding: 17px 14px;
+  .booking-enquiry__contact {
+    margin-top: 14px;
+  }
 
-    border-radius: 11px;
+  .booking-enquiry__trust {
+    gap: 9px;
+
+    margin-top: 14px;
+
+    padding-top: 14px;
+  }
+
+  .booking-enquiry__trust div {
+    font-size: 7px;
+  }
+
+  .booking-enquiry__form-wrap {
+    padding: 17px 13px;
+
+    border-radius: 12px;
+  }
+
+  .booking-enquiry__form-head {
+    margin-bottom: 17px;
+  }
+
+  .booking-enquiry__form-head h3 {
+    font-size: 22px;
+  }
+
+  .booking-enquiry__progress {
+    margin-bottom: 21px;
   }
 
   .booking-enquiry__row {
     grid-template-columns: 1fr;
 
-    gap: 12px;
+    gap: 11px;
+  }
 
-    margin-bottom: 12px;
+  .booking-enquiry__section-title--space {
+    margin-top: 16px;
   }
 
   .booking-field input,
   .booking-field select {
-    height: 42px;
+    height: 43px;
+
+    font-size: 11px;
   }
 
   .booking-enquiry__submit {
-    min-height: 45px;
+    min-height: 50px;
 
-    font-size: 10px;
+    margin-top: 18px;
   }
 }
 
 /* =========================
-   VERY SMALL MOBILE
+   SMALL MOBILE
 ========================= */
 
 @media (max-width: 380px) {
   .booking-enquiry__wrapper {
-    padding: 22px 12px;
-  }
-
-  .booking-enquiry__form {
-    padding: 14px 11px;
+    padding: 21px 11px;
   }
 
   .booking-enquiry__title {
     font-size: 2.15rem;
   }
 
+  .booking-enquiry__form-wrap {
+    padding: 15px 10px;
+  }
+
+  .booking-enquiry__form-head h3 {
+    font-size: 20px;
+  }
+
+  .booking-enquiry__form-badge {
+    padding: 6px 7px;
+
+    font-size: 7px;
+  }
+
+  .booking-enquiry__trust {
+    display: grid;
+
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
   .booking-enquiry__submit {
+    gap: 7px;
+  }
+
+  .booking-enquiry__submit-text {
     font-size: 9px;
-    gap: 6px;
+  }
+}
+
+/* =========================
+   REDUCED MOTION
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .booking-enquiry__contact,
+  .booking-enquiry__submit,
+  .booking-field input,
+  .booking-field select {
+    transition: none;
   }
 }

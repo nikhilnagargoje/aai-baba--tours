@@ -1,5 +1,6 @@
 import {
   ArrowUpRight,
+  Mail,
   MapPin,
   MessageCircle,
   Phone,
@@ -13,12 +14,22 @@ const Footer = () => {
 
   return (
     <footer className="footer">
+
       <div className="container">
+
         <div className="footer__main">
 
-          {/* Brand */}
+          {/* =====================================================
+              BRAND
+          ===================================================== */}
+
           <div className="footer__brand">
-            <Link to="/" className="footer__logo">
+
+            <Link
+              to="/"
+              className="footer__logo"
+              aria-label="Aai Baba Tours & Travels Home"
+            >
               <span className="footer__logo-main">
                 आई बाबा
               </span>
@@ -34,36 +45,92 @@ const Footer = () => {
               sightseeing, outstation and long-distance journeys.
             </p>
 
-            <div className="footer__location">
-              <MapPin size={16} />
+            {/* Address + Google Location */}
+            <a
+              href="https://share.google/9NqBdleqZw1DBKFd1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer__location"
+              aria-label="View Aai Baba Tours & Travels location on Google Maps"
+            >
+              <MapPin size={17} />
 
               <span>
                 Yashwantnagar, Harsul,
                 <br />
                 Chhatrapati Sambhajinagar
+                <small>
+                  View Location on Google Maps
+                </small>
               </span>
-            </div>
+
+              <ArrowUpRight
+                size={14}
+                className="footer__location-arrow"
+              />
+            </a>
+
           </div>
 
-          {/* Quick Links */}
+
+          {/* =====================================================
+              QUICK LINKS
+          ===================================================== */}
+
           <div className="footer__column">
-            <h3>Quick Links</h3>
+
+            <h3>
+              Quick Links
+            </h3>
 
             <nav>
-              <Link to="/">Home</Link>
-              <Link to="/about">About</Link>
-              <Link to="/services">Services</Link>
-              <Link to="/gallery">Gallery</Link>
-              <Link to="/contact">Contact</Link>
+
+              <Link to="/">
+                Home
+              </Link>
+
+              <Link to="/about">
+                About
+              </Link>
+
+              <Link to="/services">
+                Services
+              </Link>
+
+              <Link to="/outstation">
+                Outstation
+              </Link>
+
+              <Link to="/destinations">
+                Destinations
+              </Link>
+
+              <Link to="/gallery">
+                Gallery
+              </Link>
+
+              <Link to="/contact">
+                Contact
+              </Link>
+
             </nav>
+
           </div>
 
-          {/* Services */}
+
+          {/* =====================================================
+              TRAVEL SERVICES
+          ===================================================== */}
+
           <div className="footer__column">
-            <h3>Travel Services</h3>
+
+            <h3>
+              Travel Services
+            </h3>
 
             <nav>
-              <Link to="/ajanta-ellora">
+
+              <Link to="/destinations">
                 Ajanta & Ellora
               </Link>
 
@@ -76,52 +143,107 @@ const Footer = () => {
               </Link>
 
               <Link to="/services">
-                Family & Wedding Travel
+                Family Travel
+              </Link>
+
+              <Link to="/services">
+                Wedding Travel
               </Link>
 
               <Link to="/services">
                 Corporate Travel
               </Link>
+
+              <Link to="/services">
+                One Way & Round Trip
+              </Link>
+
             </nav>
+
           </div>
 
-          {/* Contact */}
-          <div className="footer__column footer__contact">
-            <h3>Get In Touch</h3>
 
+          {/* =====================================================
+              CONTACT
+          ===================================================== */}
+
+          <div className="footer__column footer__contact">
+
+            <h3>
+              Get In Touch
+            </h3>
+
+            {/* Phone */}
             <a href="tel:9272060443">
               <Phone size={16} />
-              <span>9272060443</span>
+              <span>
+                9272060443
+              </span>
             </a>
 
             <a href="tel:8010433095">
               <Phone size={16} />
-              <span>8010433095</span>
+              <span>
+                8010433095
+              </span>
             </a>
 
+            {/* WhatsApp */}
             <a
               href="https://wa.me/918208661292"
               target="_blank"
               rel="noopener noreferrer"
             >
               <MessageCircle size={16} />
-              <span>WhatsApp Booking</span>
+              <span>
+                WhatsApp Booking
+              </span>
+            </a>
+
+            {/* Email */}
+            <a
+              href="mailto:abtravls8370@gmail.com"
+            >
+              <Mail size={16} />
+              <span>
+                abtravls8370@gmail.com
+              </span>
             </a>
 
             <span className="footer__hours">
               Available 24 Hours
             </span>
+
           </div>
+
         </div>
 
-        {/* Bottom */}
+
+        {/* =====================================================
+            BOTTOM
+        ===================================================== */}
+
         <div className="footer__bottom">
-          <p>
-            © {currentYear} Aai Baba Tours & Travels.
-            All rights reserved.
-          </p>
+
+          <div className="footer__copyright">
+
+            <p>
+              © {currentYear} Aai Baba Tours & Travels.
+              All rights reserved.
+            </p>
+
+            <span className="footer__developer">
+              Developed by{" "}
+              <strong>
+                Tuljai Solutions
+              </strong>
+            </span>
+
+          </div>
+
 
           <div className="footer__bottom-links">
+
             <Link to="/contact">
               Contact
             </Link>
@@ -138,10 +260,13 @@ const Footer = () => {
               Back to Top
               <ArrowUpRight size={14} />
             </a>
+
           </div>
+
         </div>
 
       </div>
+
     </footer>
   );
 };

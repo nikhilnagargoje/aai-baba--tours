@@ -2,8 +2,8 @@ import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import {
   ArrowRight,
-  Camera,
   CarFront,
+  Camera,
   MapPin,
   MessageCircle,
   Phone,
@@ -93,23 +93,16 @@ const Gallery = () => {
       </Helmet>
 
       <main className="gallery-page">
-
         {/* HERO */}
-
         <section className="gallery-hero">
-
           <div className="gallery-hero__glow gallery-hero__glow--one" />
-
           <div className="gallery-hero__glow gallery-hero__glow--two" />
 
           <div className="gallery-hero__route gallery-hero__route--one" />
-
           <div className="gallery-hero__route gallery-hero__route--two" />
 
           <div className="container">
-
             <div className="gallery-hero__content">
-
               <div className="gallery-hero__eyebrow">
                 <span />
                 OUR GALLERY
@@ -128,15 +121,12 @@ const Gallery = () => {
               </p>
 
               <div className="gallery-hero__stats">
-
                 <div>
                   <strong>
                     <CarFront size={18} />
                   </strong>
 
-                  <span>
-                    Kia Carens
-                  </span>
+                  <span>Kia Carens</span>
                 </div>
 
                 <div>
@@ -144,9 +134,7 @@ const Gallery = () => {
                     <Camera size={18} />
                   </strong>
 
-                  <span>
-                    Real Photos
-                  </span>
+                  <span>Real Photos</span>
                 </div>
 
                 <div>
@@ -154,36 +142,101 @@ const Gallery = () => {
                     <MapPin size={18} />
                   </strong>
 
-                  <span>
-                    Sambhajinagar
-                  </span>
+                  <span>Sambhajinagar</span>
                 </div>
-
               </div>
-
             </div>
 
+            {/* LIGHTWEIGHT TRAVEL ANIMATION */}
             <div className="gallery-hero__visual">
+              <div
+                className="travel-animation"
+                aria-hidden="true"
+              >
+                <div className="travel-animation__halo travel-animation__halo--one" />
+                <div className="travel-animation__halo travel-animation__halo--two" />
 
-              <div className="gallery-hero__frame">
+                <div className="travel-animation__orbit travel-animation__orbit--one" />
+                <div className="travel-animation__orbit travel-animation__orbit--two" />
 
-                <div className="gallery-hero__frame-inner">
-
-                  <Camera
-                    size={42}
-                    strokeWidth={1.1}
+                <svg
+                  className="travel-animation__routes"
+                  viewBox="0 0 520 430"
+                  fill="none"
+                >
+                  <path
+                    className="travel-route travel-route--one"
+                    d="M95 295 C145 205 175 120 260 92"
                   />
 
-                  <span>
-                    AAI BABA
-                  </span>
+                  <path
+                    className="travel-route travel-route--two"
+                    d="M260 92 C350 90 390 150 432 205"
+                  />
 
-                  <small>
-                    TOURS & TRAVELS
-                  </small>
+                  <path
+                    className="travel-route travel-route--three"
+                    d="M432 205 C395 285 335 340 260 350"
+                  />
 
+                  <path
+                    className="travel-route travel-route--four"
+                    d="M260 350 C180 350 125 330 95 295"
+                  />
+                </svg>
+
+                <span className="travel-animation__particle travel-animation__particle--one" />
+                <span className="travel-animation__particle travel-animation__particle--two" />
+                <span className="travel-animation__particle travel-animation__particle--three" />
+
+                <div className="travel-node travel-node--origin">
+                  <span />
+                  <small>Chhatrapati Sambhajinagar</small>
                 </div>
 
+                <div className="travel-node travel-node--ajanta">
+                  <span />
+                  <small>Ajanta</small>
+                </div>
+
+                <div className="travel-node travel-node--ellora">
+                  <span />
+                  <small>Ellora</small>
+                </div>
+
+                <div className="travel-node travel-node--outstation">
+                  <span />
+                  <small>Outstation</small>
+                </div>
+
+                <div className="travel-animation__center">
+                  <div className="travel-animation__center-ring" />
+
+                  <div className="travel-animation__car">
+                    <CarFront
+                      size={42}
+                      strokeWidth={1.4}
+                    />
+                  </div>
+
+                  <strong>
+                    AAI BABA
+                  </strong>
+
+                  <span>
+                    TOURS & TRAVELS
+                  </span>
+                </div>
+
+                <div className="travel-animation__label">
+                  <span className="travel-animation__label-dot" />
+                  <div>
+                    <strong>READY TO TRAVEL</strong>
+                    <small>
+                      Local • Outstation • All India
+                    </small>
+                  </div>
+                </div>
               </div>
 
               <div className="gallery-hero__floating gallery-hero__floating--one">
@@ -195,20 +248,14 @@ const Gallery = () => {
                 <MapPin size={14} />
                 Chhatrapati Sambhajinagar
               </div>
-
             </div>
-
           </div>
         </section>
 
         {/* GALLERY */}
-
         <section className="gallery-content section">
-
           <div className="container">
-
             <div className="gallery-heading">
-
               <div>
                 <div className="gallery-eyebrow">
                   <span />
@@ -226,13 +273,10 @@ const Gallery = () => {
                 available for local, outstation and
                 long-distance journeys.
               </p>
-
             </div>
 
             {/* FILTER */}
-
             <div className="gallery-filters">
-
               {categories.map((category) => (
                 <button
                   key={category}
@@ -249,13 +293,10 @@ const Gallery = () => {
                   {category}
                 </button>
               ))}
-
             </div>
 
             {/* GRID */}
-
             <div className="gallery-grid">
-
               {filteredItems.map(
                 (item, index) => (
                   <article
@@ -269,9 +310,7 @@ const Gallery = () => {
                       setSelectedImage(item)
                     }
                   >
-
                     <div className="gallery-card__image">
-
                       <img
                         src={item.image}
                         alt={`${item.title} - Aai Baba Tours & Travels`}
@@ -292,7 +331,6 @@ const Gallery = () => {
                       </div>
 
                       <div className="gallery-card__bottom">
-
                         <div>
                           <small>
                             AAI BABA TOURS & TRAVELS
@@ -306,21 +344,15 @@ const Gallery = () => {
                         <div className="gallery-card__arrow">
                           <ArrowRight size={16} />
                         </div>
-
                       </div>
-
                     </div>
-
                   </article>
                 ),
               )}
-
             </div>
 
             {/* NOTE */}
-
             <div className="gallery-note">
-
               <div className="gallery-note__icon">
                 <Camera size={19} />
               </div>
@@ -336,20 +368,14 @@ const Gallery = () => {
                   sightseeing and outstation travel.
                 </p>
               </div>
-
             </div>
-
           </div>
         </section>
 
         {/* CTA */}
-
         <section className="gallery-cta">
-
           <div className="container">
-
             <div className="gallery-cta__wrapper">
-
               <div>
                 <span>
                   PLAN YOUR JOURNEY
@@ -367,7 +393,6 @@ const Gallery = () => {
               </div>
 
               <div className="gallery-cta__actions">
-
                 <a
                   href="tel:9272060443"
                   className="gallery-cta__call"
@@ -393,19 +418,13 @@ const Gallery = () => {
                   Explore Destinations
                   <ArrowRight size={15} />
                 </Link>
-
               </div>
-
             </div>
-
           </div>
-
         </section>
-
       </main>
 
       {/* LIGHTBOX */}
-
       {selectedImage && (
         <div
           className="gallery-lightbox"
@@ -415,7 +434,6 @@ const Gallery = () => {
             setSelectedImage(null)
           }
         >
-
           <button
             type="button"
             className="gallery-lightbox__close"
@@ -433,7 +451,6 @@ const Gallery = () => {
               event.stopPropagation()
             }
           >
-
             <img
               src={selectedImage.image}
               alt={selectedImage.title}
@@ -448,12 +465,9 @@ const Gallery = () => {
                 {selectedImage.title}
               </h3>
             </div>
-
           </div>
-
         </div>
       )}
-
     </>
   );
 };

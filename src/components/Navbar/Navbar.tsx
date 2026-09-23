@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import {
   Menu,
   X,
@@ -41,11 +41,9 @@ const navLinks = [
 ];
 
 const Navbar = () => {
-  const [menuOpen, setMenuOpen] =
-    useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  const [showNavbar, setShowNavbar] =
-    useState(true);
+  const [showNavbar, setShowNavbar] = useState(true);
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
@@ -53,21 +51,33 @@ const Navbar = () => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
+      /*
+       * Keep navbar visible while mobile menu is open.
+       */
       if (menuOpen) {
         setShowNavbar(true);
         lastScrollY = currentScrollY;
         return;
       }
 
+      /*
+       * Always show navbar near the top.
+       */
       if (currentScrollY <= 20) {
         setShowNavbar(true);
-      } else if (
-        currentScrollY > lastScrollY
-      ) {
+      }
+
+      /*
+       * Hide while scrolling down.
+       */
+      else if (currentScrollY > lastScrollY) {
         setShowNavbar(false);
-      } else if (
-        currentScrollY < lastScrollY
-      ) {
+      }
+
+      /*
+       * Show while scrolling up.
+       */
+      else if (currentScrollY < lastScrollY) {
         setShowNavbar(true);
       }
 
@@ -112,12 +122,16 @@ const Navbar = () => {
     >
       <div className="navbar__container">
 
-        {/* LOGO */}
+        {/* =====================================================
+            LOGO
+        ===================================================== */}
 
-        <Link
+        <NavLink
           to="/"
+          end
           className="navbar__logo"
           onClick={closeMenu}
+          aria-label="Aai Baba Tours & Travels Home"
         >
           <span className="navbar__logo-main">
             आई बाबा
@@ -126,34 +140,45 @@ const Navbar = () => {
           <span className="navbar__logo-sub">
             Tours & Travels
           </span>
-        </Link>
+        </NavLink>
 
-        {/* DESKTOP NAVIGATION */}
+
+        {/* =====================================================
+            DESKTOP NAVIGATION
+        ===================================================== */}
 
         <nav
           className="navbar__links"
           aria-label="Main navigation"
         >
           {navLinks.map((link) => (
-            <Link
+            <NavLink
               key={link.path}
               to={link.path}
+              end={link.path === "/"}
             >
               {link.name}
-            </Link>
+            </NavLink>
           ))}
         </nav>
 
-        {/* DESKTOP ACTIONS */}
+
+        {/* =====================================================
+            DESKTOP ACTIONS
+        ===================================================== */}
 
         <div className="navbar__actions">
 
           <a
             href="tel:9272060443"
             className="navbar__call"
+            aria-label="Call Aai Baba Tours & Travels"
           >
             <Phone size={16} />
-            <span>Call Now</span>
+
+            <span>
+              Call Now
+            </span>
           </a>
 
           <a
@@ -161,14 +186,21 @@ const Navbar = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="navbar__whatsapp"
+            aria-label="WhatsApp Aai Baba Tours & Travels"
           >
             <MessageCircle size={16} />
-            <span>WhatsApp</span>
+
+            <span>
+              WhatsApp
+            </span>
           </a>
 
         </div>
 
-        {/* MOBILE MENU BUTTON */}
+
+        {/* =====================================================
+            MOBILE MENU BUTTON
+        ===================================================== */}
 
         <button
           type="button"
@@ -180,6 +212,7 @@ const Navbar = () => {
               : "Open navigation menu"
           }
           aria-expanded={menuOpen}
+          aria-controls="mobile-navigation"
         >
           {menuOpen ? (
             <X size={24} />
@@ -190,29 +223,38 @@ const Navbar = () => {
 
       </div>
 
-      {/* MOBILE MENU */}
+
+      {/* =====================================================
+          MOBILE MENU
+      ===================================================== */}
 
       <div
+        id="mobile-navigation"
         className={`mobile-menu ${
           menuOpen
             ? "mobile-menu--open"
             : ""
         }`}
       >
+
         <nav
           className="mobile-menu__links"
           aria-label="Mobile navigation"
         >
           {navLinks.map((link) => (
-            <Link
+            <NavLink
               key={link.path}
               to={link.path}
+              end={link.path === "/"}
               onClick={closeMenu}
             >
               {link.name}
-            </Link>
+            </NavLink>
           ))}
         </nav>
+
+
+        {/* MOBILE ACTIONS */}
 
         <div className="mobile-menu__actions">
 
@@ -221,7 +263,10 @@ const Navbar = () => {
             onClick={closeMenu}
           >
             <Phone size={18} />
-            <span>Call Now</span>
+
+            <span>
+              Call Now
+            </span>
           </a>
 
           <a
@@ -231,13 +276,16 @@ const Navbar = () => {
             onClick={closeMenu}
           >
             <MessageCircle size={18} />
+
             <span>
               WhatsApp Booking
             </span>
           </a>
 
         </div>
+
       </div>
+
     </header>
   );
 };

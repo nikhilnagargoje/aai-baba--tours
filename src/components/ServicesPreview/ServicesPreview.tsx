@@ -2,9 +2,8 @@ import { motion } from "framer-motion";
 import {
   ArrowRight,
   MapPinned,
-  Route,
-  HeartHandshake,
   Mountain,
+  Route,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -14,23 +13,23 @@ const services = [
   {
     icon: MapPinned,
     number: "01",
-    title: "Local & City Travel",
+    title: "Local Travel",
     description:
-      "Comfortable local travel and sightseeing across Chhatrapati Sambhajinagar.",
+      "Easy city travel and sightseeing across Chhatrapati Sambhajinagar.",
   },
   {
     icon: Mountain,
     number: "02",
-    title: "Ajanta & Ellora Tours",
+    title: "Ajanta & Ellora",
     description:
-      "Convenient travel for Ajanta Caves, Ellora Caves and heritage sightseeing.",
+      "Comfortable trips to Ajanta Caves, Ellora Caves and nearby attractions.",
   },
   {
     icon: Route,
     number: "03",
-    title: "Outstation & All India",
+    title: "Outstation Travel",
     description:
-      "Reliable long-distance travel across Maharashtra, interstate destinations and India.",
+      "One-way and round trips across Maharashtra, interstate and India.",
   },
 ];
 
@@ -39,17 +38,16 @@ const ServicesPreview = () => {
     <section
       className="services-preview section"
       id="services"
+      aria-labelledby="services-preview-title"
     >
       <div className="container">
-        {/* =========================
-            HEADER
-        ========================== */}
 
+        {/* HEADER */}
         <motion.div
           className="services-preview__header"
           initial={{
             opacity: 0,
-            y: 25,
+            y: 20,
           }}
           whileInView={{
             opacity: 1,
@@ -60,37 +58,32 @@ const ServicesPreview = () => {
             amount: 0.2,
           }}
           transition={{
-            duration: 0.7,
+            duration: 0.55,
+            ease: "easeOut",
           }}
         >
           <div className="services-preview__eyebrow">
             <span />
-            OUR SERVICES
+            TRAVEL SERVICES
           </div>
 
           <div className="services-preview__heading-row">
-            <div>
-              <h2 className="services-preview__title">
-                Travel Services
-                <br />
-                <span>For Every Journey.</span>
-              </h2>
-            </div>
+            <h2
+              id="services-preview-title"
+              className="services-preview__title"
+            >
+              Travel Made
+              <span> Simple.</span>
+            </h2>
 
             <p className="services-preview__intro">
-              From local travel in Chhatrapati
-              Sambhajinagar to long-distance journeys
-              across Maharashtra and India, we provide
-              comfortable travel solutions for different
-              needs.
+              Local rides, sightseeing and outstation journeys
+              from Chhatrapati Sambhajinagar.
             </p>
           </div>
         </motion.div>
 
-        {/* =========================
-            SERVICE GRID
-        ========================== */}
-
+        {/* SERVICE CARDS */}
         <div className="services-preview__grid">
           {services.map(
             (
@@ -107,7 +100,7 @@ const ServicesPreview = () => {
                 className="service-card"
                 initial={{
                   opacity: 0,
-                  y: 30,
+                  y: 22,
                 }}
                 whileInView={{
                   opacity: 1,
@@ -118,17 +111,20 @@ const ServicesPreview = () => {
                   amount: 0.15,
                 }}
                 transition={{
-                  duration: 0.6,
-                  delay: index * 0.08,
+                  duration: 0.5,
+                  delay: index * 0.07,
+                  ease: "easeOut",
                 }}
               >
+                <div className="service-card__glow" />
+
                 <div className="service-card__top">
                   <span className="service-card__number">
                     {number}
                   </span>
 
                   <div className="service-card__icon">
-                    <Icon size={21} />
+                    <Icon size={20} strokeWidth={1.8} />
                   </div>
                 </div>
 
@@ -138,58 +134,48 @@ const ServicesPreview = () => {
                   <p>{description}</p>
                 </div>
 
-                <div className="service-card__arrow">
-                  <ArrowRight size={17} />
+                <div className="service-card__bottom">
+                  <span>Explore Service</span>
+
+                  <div className="service-card__arrow">
+                    <ArrowRight size={15} />
+                  </div>
                 </div>
               </motion.article>
             ),
           )}
         </div>
 
-        {/* =========================
-            CTA
-        ========================== */}
-
+        {/* COMPACT CTA */}
         <motion.div
-          className="services-preview__cta"
+          className="services-preview__footer"
           initial={{
             opacity: 0,
-            y: 20,
           }}
           whileInView={{
             opacity: 1,
-            y: 0,
           }}
           viewport={{
             once: true,
           }}
           transition={{
-            duration: 0.7,
+            duration: 0.5,
+            delay: 0.15,
           }}
         >
-          <div>
-            <HeartHandshake size={20} />
-
-            <div>
-              <strong>
-                Looking for something specific?
-              </strong>
-
-              <span>
-                Explore all our travel and car rental
-                services.
-              </span>
-            </div>
-          </div>
+          <span>
+            Need a different travel service?
+          </span>
 
           <Link
             to="/services"
             className="services-preview__link"
           >
-            <span>Explore All Services</span>
-            <ArrowRight size={17} />
+            View All Services
+            <ArrowRight size={15} />
           </Link>
         </motion.div>
+
       </div>
     </section>
   );

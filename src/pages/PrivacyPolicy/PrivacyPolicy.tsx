@@ -1,5 +1,10 @@
 import { Helmet } from "react-helmet-async";
-import { ArrowLeft, Mail, MapPin, Phone } from "lucide-react";
+import {
+  ArrowLeft,
+  MapPin,
+  MessageCircle,
+  Phone,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 
 import "./PrivacyPolicy.css";
@@ -24,12 +29,9 @@ const PrivacyPolicy = () => {
       </Helmet>
 
       <main className="privacy-page">
-
         {/* HERO */}
-
         <section className="privacy-hero">
           <div className="container">
-
             <div className="privacy-hero__eyebrow">
               <span />
               LEGAL INFORMATION
@@ -45,22 +47,16 @@ const PrivacyPolicy = () => {
               Tours & Travels handles information shared
               through our website and booking enquiries.
             </p>
-
           </div>
         </section>
 
         {/* CONTENT */}
-
         <section className="privacy-content section">
-
           <div className="container">
-
             <div className="privacy-layout">
-
+              {/* SIDEBAR */}
               <aside className="privacy-sidebar">
-
                 <div className="privacy-sidebar__box">
-
                   <span>
                     AAI BABA TOURS & TRAVELS
                   </span>
@@ -72,13 +68,11 @@ const PrivacyPolicy = () => {
                   <small>
                     Last updated: September 2026
                   </small>
-
                 </div>
-
               </aside>
 
+              {/* DOCUMENT */}
               <article className="privacy-document">
-
                 <section>
                   <h2>1. Introduction</h2>
 
@@ -226,15 +220,14 @@ const PrivacyPolicy = () => {
                   </p>
 
                   <div className="privacy-contact">
-
                     <a href="tel:9272060443">
                       <Phone size={17} />
-                      9272060443
+                      <span>9272060443</span>
                     </a>
 
                     <a href="tel:8010433095">
                       <Phone size={17} />
-                      8010433095
+                      <span>8010433095</span>
                     </a>
 
                     <a
@@ -242,8 +235,10 @@ const PrivacyPolicy = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <Mail size={17} />
-                      WhatsApp: 8208661292
+                      <MessageCircle size={17} />
+                      <span>
+                        WhatsApp: 8208661292
+                      </span>
                     </a>
 
                     <div>
@@ -255,12 +250,9 @@ const PrivacyPolicy = () => {
                         Chhatrapati Sambhajinagar
                       </span>
                     </div>
-
                   </div>
                 </section>
-
               </article>
-
             </div>
 
             <Link
@@ -270,11 +262,8 @@ const PrivacyPolicy = () => {
               <ArrowLeft size={16} />
               Back to Home
             </Link>
-
           </div>
-
         </section>
-
       </main>
     </>
   );

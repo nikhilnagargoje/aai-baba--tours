@@ -1,41 +1,77 @@
 .popular-destinations {
-  background: var(--color-bg);
+  position: relative;
+
   overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      rgba(162, 118, 61, 0.08),
+      transparent 34%
+    ),
+    var(--color-bg);
 }
 
+/* =========================
+   HEADER
+========================= */
+
 .popular-destinations__heading {
+  position: relative;
+  z-index: 5;
+
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
-  gap: 50px;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(280px, 390px);
+
   align-items: end;
-  margin-bottom: 40px;
+
+  gap: 45px;
+
+  margin-bottom: 30px;
 }
 
 .popular-destinations__eyebrow {
   display: flex;
   align-items: center;
-  gap: 9px;
-  margin-bottom: 16px;
+
+  gap: 8px;
+
+  margin-bottom: 13px;
 
   color: var(--color-accent);
-  font-size: 10px;
+
+  font-size: 9px;
   font-weight: 800;
+
   letter-spacing: 2px;
 }
 
 .popular-destinations__eyebrow span {
-  width: 25px;
+  width: 24px;
   height: 1px;
+
   background: var(--color-accent);
 }
 
 .popular-destinations__title {
-  max-width: 600px;
+  margin: 0;
+
+  color: var(--color-primary);
 
   font-family: "Playfair Display", serif;
-  font-size: clamp(2.3rem, 4vw, 3.6rem);
-  line-height: 1.05;
-  letter-spacing: -1px;
+
+  font-size: clamp(
+    2.5rem,
+    4.5vw,
+    3.9rem
+  );
+
+  line-height: 1;
+
+  letter-spacing: -1.3px;
 }
 
 .popular-destinations__title span {
@@ -43,236 +79,833 @@
 }
 
 .popular-destinations__intro {
+  margin: 0;
+
   color: var(--color-text-light);
-  font-size: 14px;
-  line-height: 1.8;
+
+  font-size: 12px;
+
+  line-height: 1.75;
 }
 
-/* Cards */
+/* =========================
+   NETWORK
+========================= */
 
-.popular-destinations__grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
-}
-
-.destination-card {
-  overflow: hidden;
-
-  background: var(--color-white);
-
-  border: 1px solid var(--color-border);
-  border-radius: 16px;
-
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-}
-
-.destination-card:hover {
-  transform: translateY(-6px);
-
-  box-shadow:
-    0 20px 45px rgba(76, 48, 29, 0.1);
-}
-
-.destination-card__image {
+.destination-network {
   position: relative;
 
-  height: 220px;
+  height: 500px;
 
   overflow: hidden;
-
-  background: #e8e0d6;
-}
-
-.destination-card__image img {
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
-
-  transition: transform 0.55s ease;
-}
-
-.destination-card:hover
-.destination-card__image img {
-  transform: scale(1.06);
-}
-
-.destination-card__overlay {
-  position: absolute;
-  inset: 0;
 
   background:
     linear-gradient(
-      to top,
-      rgba(0, 0, 0, 0.55),
-      rgba(0, 0, 0, 0.02) 65%
+      135deg,
+      #fffdf8 0%,
+      #f7f0e6 100%
     );
+
+  border:
+    1px solid
+    rgba(76, 48, 29, 0.09);
+
+  border-radius: 24px;
+
+  box-shadow:
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.9);
 }
 
-.destination-card__location {
+/* =========================
+   AMBIENT CIRCLES
+========================= */
+
+.destination-network__ambient {
   position: absolute;
 
-  left: 15px;
-  bottom: 14px;
+  border:
+    1px solid
+    rgba(162, 118, 61, 0.09);
+
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+.destination-network__ambient--one {
+  width: 460px;
+  height: 460px;
+
+  top: 20px;
+  left: 50%;
+
+  transform: translateX(-50%);
+}
+
+.destination-network__ambient--two {
+  width: 680px;
+  height: 680px;
+
+  top: -90px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  border-color:
+    rgba(162, 118, 61, 0.045);
+}
+
+/* =========================
+   SVG ROUTES
+========================= */
+
+.destination-network__routes {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: visible;
+
+  pointer-events: none;
+}
+
+.network-route {
+  fill: none;
+
+  stroke:
+    rgba(162, 118, 61, 0.3);
+
+  stroke-width: 1;
+
+  stroke-dasharray: 5 9;
+
+  animation:
+    routeFlow 8s linear infinite;
+}
+
+.network-route--two {
+  animation-delay: -2s;
+}
+
+.network-route--three {
+  animation-delay: -4s;
+}
+
+.network-route--four {
+  animation-delay: -6s;
+}
+
+@keyframes routeFlow {
+  to {
+    stroke-dashoffset: -140;
+  }
+}
+
+/* =========================
+   MOVING PARTICLES
+========================= */
+
+.route-particle {
+  position: absolute;
+
+  width: 5px;
+  height: 5px;
+
+  background: var(--color-accent);
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 0 4px
+    rgba(162, 118, 61, 0.1);
+
+  pointer-events: none;
+}
+
+.route-particle--one {
+  left: 31%;
+  top: 31%;
+
+  animation:
+    particleOne 5s ease-in-out infinite;
+}
+
+.route-particle--two {
+  left: 69%;
+  top: 31%;
+
+  animation:
+    particleTwo 5.5s ease-in-out infinite;
+}
+
+.route-particle--three {
+  left: 36%;
+  top: 69%;
+
+  animation:
+    particleThree 5.2s ease-in-out infinite;
+}
+
+.route-particle--four {
+  left: 64%;
+  top: 69%;
+
+  animation:
+    particleFour 5.8s ease-in-out infinite;
+}
+
+@keyframes particleOne {
+  0%,
+  100% {
+    transform:
+      translate(0, 0);
+    opacity: 0.35;
+  }
+
+  50% {
+    transform:
+      translate(70px, 45px);
+    opacity: 1;
+  }
+}
+
+@keyframes particleTwo {
+  0%,
+  100% {
+    transform:
+      translate(0, 0);
+    opacity: 0.35;
+  }
+
+  50% {
+    transform:
+      translate(-70px, 50px);
+    opacity: 1;
+  }
+}
+
+@keyframes particleThree {
+  0%,
+  100% {
+    transform:
+      translate(0, 0);
+    opacity: 0.35;
+  }
+
+  50% {
+    transform:
+      translate(50px, -45px);
+    opacity: 1;
+  }
+}
+
+@keyframes particleFour {
+  0%,
+  100% {
+    transform:
+      translate(0, 0);
+    opacity: 0.35;
+  }
+
+  50% {
+    transform:
+      translate(-50px, -45px);
+    opacity: 1;
+  }
+}
+
+/* =========================
+   TRAVEL HUB
+========================= */
+
+.travel-hub {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  z-index: 4;
+
+  width: 150px;
+  height: 150px;
+
+  transform:
+    translate(-50%, -50%);
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  background:
+    rgba(255, 253, 248, 0.95);
+
+  border:
+    1px solid
+    rgba(162, 118, 61, 0.25);
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 15px 45px
+    rgba(76, 48, 29, 0.12);
+
+  backdrop-filter: blur(8px);
+}
+
+.travel-hub::before {
+  content: "";
+
+  position: absolute;
+
+  inset: -10px;
+
+  border:
+    1px dashed
+    rgba(162, 118, 61, 0.25);
+
+  border-radius: 50%;
+
+  animation:
+    hubRotate 18s linear infinite;
+}
+
+@keyframes hubRotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.travel-hub__outer-ring {
+  position: absolute;
+
+  inset: 8px;
+
+  border:
+    1px solid
+    rgba(162, 118, 61, 0.09);
+
+  border-radius: 50%;
+}
+
+.travel-hub__icon {
+  position: relative;
+
+  width: 45px;
+  height: 45px;
 
   display: flex;
   align-items: center;
-  gap: 6px;
+  justify-content: center;
 
   color: var(--color-white);
 
-  font-size: 9px;
-  font-weight: 700;
+  background: var(--color-primary);
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 8px 22px
+    rgba(76, 48, 29, 0.2);
 }
 
-.destination-card__location svg {
-  color: #e0b777;
+.travel-hub__text {
+  position: relative;
+
+  margin-top: 8px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  color: var(--color-primary);
 }
 
-.destination-card__content {
-  min-height: 72px;
+.travel-hub__text strong {
+  font-family:
+    "Playfair Display",
+    serif;
 
-  padding: 17px 18px;
+  font-size: 15px;
 
+  line-height: 1;
+}
+
+.travel-hub__text span {
+  margin-top: 3px;
+
+  color: var(--color-accent);
+
+  font-size: 7px;
+  font-weight: 800;
+
+  letter-spacing: 1.4px;
+
+  text-transform: uppercase;
+}
+
+.travel-hub__origin {
+  position: relative;
+
+  margin-top: 7px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 3px;
+
+  color: var(--color-text-light);
+
+  font-size: 6.5px;
+  font-weight: 600;
+
+  text-align: center;
+}
+
+/* =========================
+   DESTINATION NODE
+========================= */
+
+.destination-node {
+  position: absolute;
+
+  z-index: 5;
+
+  width: 220px;
+}
+
+.destination--ajanta {
+  left: 7%;
+  top: 14%;
+}
+
+.destination--shirdi {
+  left: 8%;
+  bottom: 12%;
+}
+
+.destination--nashik {
+  right: 7%;
+  top: 18%;
+}
+
+/* =========================
+   NODE POINT
+========================= */
+
+.destination-node__point {
+  position: absolute;
+
+  width: 16px;
+  height: 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    rgba(162, 118, 61, 0.08);
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 0 5px
+    rgba(162, 118, 61, 0.04);
+}
+
+.destination-node__point span {
+  width: 6px;
+  height: 6px;
+
+  background: var(--color-accent);
+
+  border-radius: 50%;
+
+  animation:
+    nodePulse 2.2s ease-in-out infinite;
+}
+
+@keyframes nodePulse {
+  0%,
+  100% {
+    transform: scale(0.85);
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: scale(1.25);
+    opacity: 1;
+  }
+}
+
+.destination--ajanta
+.destination-node__point {
+  right: -8px;
+  top: 45px;
+}
+
+.destination--shirdi
+.destination-node__point {
+  right: -8px;
+  top: 45px;
+}
+
+.destination--nashik
+.destination-node__point {
+  left: -8px;
+  top: 45px;
+}
+
+/* =========================
+   DESTINATION CARD
+========================= */
+
+.destination-node__card {
+  padding: 17px;
+
+  background:
+    rgba(255, 255, 255, 0.9);
+
+  border:
+    1px solid
+    rgba(76, 48, 29, 0.1);
+
+  border-radius: 14px;
+
+  box-shadow:
+    0 12px 30px
+    rgba(76, 48, 29, 0.07);
+
+  backdrop-filter: blur(8px);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.destination-node:hover
+.destination-node__card {
+  transform: translateY(-5px);
+
+  border-color:
+    rgba(162, 118, 61, 0.28);
+
+  box-shadow:
+    0 18px 38px
+    rgba(76, 48, 29, 0.11);
+}
+
+.destination-node__top {
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  gap: 12px;
+  margin-bottom: 12px;
 }
 
-.destination-card__content h3 {
-  color: var(--color-primary);
+.destination-node__top > span {
+  color:
+    rgba(76, 48, 29, 0.3);
 
-  font-family: "Playfair Display", serif;
-
-  font-size: 18px;
-  line-height: 1.2;
-}
-
-.destination-card__content a {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-
-  flex-shrink: 0;
-
-  color: var(--color-primary);
-
-  text-decoration: none;
-
-  font-size: 9px;
+  font-size: 8px;
   font-weight: 800;
 
-  transition: transform 0.25s ease;
+  letter-spacing: 1.4px;
 }
 
-.destination-card__content a:hover {
-  transform: translateX(3px);
+.destination-node__top small {
+  color: var(--color-accent);
+
+  font-size: 6.5px;
+  font-weight: 800;
+
+  letter-spacing: 1px;
 }
 
-.destination-card__content a svg {
+.destination-node__card h3 {
+  margin: 0;
+
+  color: var(--color-primary);
+
+  font-family:
+    "Playfair Display",
+    serif;
+
+  font-size: 20px;
+
+  line-height: 1.1;
+}
+
+.destination-node__location {
+  margin-top: 7px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 5px;
+
+  color: var(--color-text-light);
+
+  font-size: 8px;
+}
+
+.destination-node__location svg {
   color: var(--color-accent);
 }
 
-/* Bottom */
-
-.popular-destinations__bottom {
-  margin-top: 24px;
-  padding: 18px;
+.destination-node__link {
+  margin-top: 14px;
+  padding-top: 10px;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  gap: 18px;
+  color: var(--color-primary);
 
-  background: var(--color-bg-soft);
+  border-top:
+    1px solid
+    rgba(76, 48, 29, 0.08);
 
-  border: 1px solid var(--color-border);
-  border-radius: 14px;
+  text-decoration: none;
+
+  font-size: 8px;
+  font-weight: 800;
+}
+
+.destination-node__link svg {
+  color: var(--color-accent);
+
+  transition:
+    transform 0.25s ease;
+}
+
+.destination-node__link:hover svg {
+  transform:
+    translate(2px, -2px);
+}
+
+/* =========================
+   NETWORK LABEL
+========================= */
+
+.network-label {
+  position: absolute;
+
+  z-index: 4;
+
+  display: flex;
+  align-items: center;
+
+  gap: 6px;
+
+  color:
+    rgba(76, 48, 29, 0.42);
+
+  font-size: 7px;
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+}
+
+.network-label svg {
+  color: var(--color-accent);
+}
+
+.network-label--top {
+  left: 50%;
+  top: 22px;
+
+  transform:
+    translateX(-50%);
+}
+
+/* =========================
+   STATUS
+========================= */
+
+.network-status {
+  position: absolute;
+
+  left: 50%;
+  bottom: 20px;
+
+  z-index: 5;
+
+  transform:
+    translateX(-50%);
+
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  color:
+    rgba(76, 48, 29, 0.45);
+
+  font-size: 7px;
+  font-weight: 800;
+
+  letter-spacing: 1.2px;
+}
+
+.network-status__pulse {
+  width: 5px;
+  height: 5px;
+
+  background: #6d9167;
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 0 4px
+    rgba(109, 145, 103, 0.1);
+
+  animation:
+    statusPulse 2s ease-in-out infinite;
+}
+
+@keyframes statusPulse {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.popular-destinations__footer {
+  position: relative;
+  z-index: 5;
+
+  margin-top: 16px;
+  padding: 12px 15px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  background: var(--color-primary);
+
+  border-radius: 10px;
 }
 
 .popular-destinations__routes {
   display: flex;
   align-items: center;
+
   flex-wrap: wrap;
-  gap: 7px;
+
+  gap: 5px;
 }
 
-.popular-destinations__routes span {
+.popular-destinations__routes-label {
   margin-right: 4px;
 
-  color: var(--color-text-light);
+  color:
+    rgba(255, 255, 255, 0.55);
 
-  font-size: 10px;
+  font-size: 8px;
 }
 
-.popular-destinations__routes strong {
-  padding: 6px 8px;
+.popular-destinations__route {
+  padding: 5px 7px;
 
-  color: var(--color-primary);
-  background: var(--color-white);
+  color:
+    rgba(255, 255, 255, 0.76);
 
-  border: 1px solid var(--color-border);
-  border-radius: 6px;
+  background:
+    rgba(255, 255, 255, 0.07);
 
-  font-size: 9px;
-  font-weight: 700;
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.08);
+
+  border-radius: 5px;
+
+  font-size: 7px;
 }
 
-.popular-destinations__button {
-  min-height: 40px;
-
-  padding: 0 14px;
-
+.popular-destinations__all {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
+
+  gap: 6px;
 
   flex-shrink: 0;
 
   color: var(--color-white);
-  background: var(--color-primary);
-
-  border-radius: 8px;
 
   text-decoration: none;
 
-  font-size: 10px;
-  font-weight: 700;
+  font-size: 8px;
+  font-weight: 800;
 
   transition:
-    transform 0.25s ease,
-    background 0.25s ease;
+    color 0.2s ease,
+    gap 0.2s ease;
 }
 
-.popular-destinations__button:hover {
-  transform: translateX(3px);
-  background: var(--color-primary-dark);
+.popular-destinations__all:hover {
+  color: #d8b27a;
+
+  gap: 9px;
 }
 
-/* Tablet */
+/* =========================
+   TABLET
+========================= */
 
 @media (max-width: 900px) {
   .popular-destinations__heading {
     grid-template-columns: 1fr;
-    gap: 16px;
+
+    gap: 13px;
   }
 
-  .popular-destinations__grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .popular-destinations__intro {
+    max-width: 560px;
   }
 
-  .destination-card:last-child {
-    grid-column: span 2;
+  .destination-network {
+    height: 560px;
+  }
+
+  .destination--ajanta {
+    left: 4%;
+  }
+
+  .destination--shirdi {
+    left: 4%;
+  }
+
+  .destination--nashik {
+    right: 4%;
+  }
+
+  .destination-node {
+    width: 190px;
   }
 }
 
-/* Mobile */
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 600px) {
   .popular-destinations {
@@ -280,75 +913,268 @@
   }
 
   .popular-destinations__heading {
-    margin-bottom: 25px;
+    margin-bottom: 24px;
   }
 
   .popular-destinations__title {
-    font-size: 2.45rem;
+    font-size: 2.35rem;
   }
 
   .popular-destinations__intro {
+    font-size: 11px;
+
+    line-height: 1.65;
+  }
+
+  /* Compact network */
+
+  .destination-network {
+    height: 650px;
+
+    border-radius: 18px;
+  }
+
+  .destination-network__ambient--one {
+    width: 330px;
+    height: 330px;
+
+    top: 155px;
+  }
+
+  .destination-network__ambient--two {
+    width: 500px;
+    height: 500px;
+
+    top: 70px;
+  }
+
+  .destination-network__routes {
+    opacity: 0.7;
+  }
+
+  /* Hub */
+
+  .travel-hub {
+    top: 48%;
+
+    width: 120px;
+    height: 120px;
+  }
+
+  .travel-hub__icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .travel-hub__icon svg {
+    width: 20px;
+  }
+
+  .travel-hub__text strong {
     font-size: 13px;
-    line-height: 1.7;
   }
 
-  .popular-destinations__grid {
-    grid-template-columns: 1fr;
-    gap: 14px;
+  .travel-hub__text span {
+    font-size: 6px;
   }
 
-  .destination-card:last-child {
-    grid-column: auto;
+  .travel-hub__origin {
+    max-width: 85px;
+
+    font-size: 5.5px;
   }
 
-  .destination-card__image {
-    height: 185px;
+  /* Nodes */
+
+  .destination-node {
+    width: 155px;
   }
 
-  .destination-card__content {
-    min-height: 62px;
-    padding: 14px 15px;
+  .destination--ajanta {
+    left: 10px;
+    top: 70px;
   }
 
-  .destination-card__content h3 {
+  .destination--shirdi {
+    left: 10px;
+    bottom: 70px;
+  }
+
+  .destination--nashik {
+    right: 10px;
+    top: 270px;
+  }
+
+  .destination-node__card {
+    padding: 13px;
+
+    border-radius: 11px;
+  }
+
+  .destination-node__top {
+    margin-bottom: 9px;
+  }
+
+  .destination-node__top > span {
+    font-size: 7px;
+  }
+
+  .destination-node__top small {
+    font-size: 5.5px;
+  }
+
+  .destination-node__card h3 {
     font-size: 17px;
   }
 
-  .popular-destinations__bottom {
-    margin-top: 18px;
-    padding: 15px;
+  .destination-node__location {
+    font-size: 7px;
+  }
+
+  .destination-node__link {
+    margin-top: 10px;
+    padding-top: 8px;
+
+    font-size: 7px;
+  }
+
+  /* Points */
+
+  .destination--ajanta
+  .destination-node__point {
+    right: -8px;
+    top: 40px;
+  }
+
+  .destination--shirdi
+  .destination-node__point {
+    right: -8px;
+    top: 40px;
+  }
+
+  .destination--nashik
+  .destination-node__point {
+    left: -8px;
+    top: 40px;
+  }
+
+  /* Label */
+
+  .network-label--top {
+    top: 20px;
+
+    width: max-content;
+
+    font-size: 5.5px;
+  }
+
+  .network-status {
+    bottom: 17px;
+
+    font-size: 6px;
+  }
+
+  /* Footer */
+
+  .popular-destinations__footer {
+    padding: 11px;
+
+    align-items: flex-start;
 
     flex-direction: column;
-    align-items: stretch;
+
+    gap: 10px;
   }
 
   .popular-destinations__routes {
-    gap: 5px;
+    width: 100%;
   }
 
-  .popular-destinations__routes span {
+  .popular-destinations__routes-label {
     width: 100%;
-    margin-bottom: 2px;
+
+    margin-bottom: 1px;
   }
 
-  .popular-destinations__button {
+  .popular-destinations__all {
     width: 100%;
+
     justify-content: center;
+
+    padding-top: 9px;
+
+    border-top:
+      1px solid
+      rgba(255, 255, 255, 0.1);
   }
 }
 
-/* Very small screens */
+/* =========================
+   SMALL MOBILE
+========================= */
 
 @media (max-width: 380px) {
   .popular-destinations__title {
-    font-size: 2.2rem;
+    font-size: 2.15rem;
   }
 
-  .destination-card__image {
-    height: 165px;
+  .destination-network {
+    height: 610px;
   }
 
-  .popular-destinations__routes strong {
-    font-size: 8px;
+  .destination-node {
+    width: 140px;
+  }
+
+  .destination--ajanta {
+    left: 7px;
+    top: 65px;
+  }
+
+  .destination--shirdi {
+    left: 7px;
+    bottom: 62px;
+  }
+
+  .destination--nashik {
+    right: 7px;
+    top: 265px;
+  }
+
+  .destination-node__card {
+    padding: 11px;
+  }
+
+  .destination-node__card h3 {
+    font-size: 15px;
+  }
+
+  .travel-hub {
+    width: 108px;
+    height: 108px;
+  }
+
+  .travel-hub__origin {
+    display: none;
+  }
+}
+
+/* =========================
+   REDUCED MOTION
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .network-route,
+  .route-particle,
+  .travel-hub::before,
+  .destination-node__point span,
+  .network-status__pulse {
+    animation: none;
+  }
+
+  .destination-node__card,
+  .destination-node__pin,
+  .popular-destinations__all {
+    transition: none;
   }
 }
