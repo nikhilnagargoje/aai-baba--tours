@@ -1,75 +1,77 @@
-# React + TypeScript + Vite
+# Aai Baba Tours & Travels
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive travel and transport website built for a real-world business using React.js, Vite and Bootstrap.
 
-Currently, two official plugins are available:
+## 📌 About the Project
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Aai Baba Tours & Travels is a customer-focused website designed to present travel services, routes, offers and destination information in a clear and mobile-friendly experience.
 
-## React Compiler
+The project was developed with a focus on responsive UI, simple navigation and making customer enquiries easier.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Features
 
-## Expanding the ESLint configuration
+- Responsive design
+- Modern and user-friendly interface
+- Travel routes and service information
+- Offers section
+- Destination information
+- Customer booking/enquiry flow
+- WhatsApp-based enquiry functionality
+- Mobile-friendly navigation
+- Reusable React components
+- Responsive layouts across screen sizes
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🛠️ Tech Stack
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- React.js
+- JavaScript
+- Vite
+- HTML5
+- CSS3
+- Bootstrap
+- Git
+- GitHub
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🏗️ Development Workflow
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Requirement → UI Planning → React Development → Responsive Testing → Integration → Deployment
 
-```
+## 📱 Responsive Design
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+The website is designed to provide a consistent experience across desktop, tablet and mobile devices.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Special attention was given to layout, spacing, navigation and content presentation on smaller screens.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 💬 Customer Enquiry Flow
 
-```
+The website includes a customer enquiry flow that makes it easier for users to provide their travel requirements and contact the business through WhatsApp.
+
+This keeps the enquiry process simple and direct for customers.
+
+## 🧩 Project Structure
+
+The application is organized using reusable React components and structured sections to make the project easier to maintain and extend.
+
+## 🚀 Deployment
+
+The project is maintained using Git and GitHub and deployed as a live website for real-world use.
+
+## 🔮 Future Improvements
+
+Potential future improvements include:
+
+- Additional backend functionality
+- More dynamic booking workflows
+- Improved analytics
+- Performance optimization
+- Additional customer features
+
+## 👨‍💻 Developer
+
+**Nikhil Nagargoje**
+
+Frontend Developer
+
+---
+
+If you found this project useful, feel free to explore the repository and live website.
